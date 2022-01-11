@@ -6,7 +6,7 @@
         "ext-curl": "*",
         "ext-json": "*",
         "ext-mbstring": "*",
-        "guzzlehttp/guzzle": "6.0.2",
+        "guzzlehttp/guzzle": "6.0.2|~7.0",
         "firebase/php-jwt": "^5.0"
     },
     "autoload": {
