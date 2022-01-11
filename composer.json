@@ -1,4 +1,6 @@
 {
+    "name": "Smartoys/GenbaSwaggerClientApi",
+    "description": "Genba Swagger Client API",
     "require": {
         "php": ">=5.5",
         "ext-curl": "*",
