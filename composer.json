@@ -1,5 +1,5 @@
 {
-    "name": "smartoys/senbaswaggerclientapi",
+    "name": "smartoys/genbaswaggerclientapi",
     "description": "Genba Swagger Client API",
     "require": {
         "php": ">=5.5",
