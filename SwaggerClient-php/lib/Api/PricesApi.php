@@ -95,14 +95,15 @@ class PricesApi
      * @param  string $authorization Access token from AAD. Should start with &#39;Bearer &#39;. (required)
      * @param  string $continuationtoken A continuation token returned in an earlier response (optional)
      * @param  string $etailerid The affiliated eTailer for which you wish to retrieve the product list (optional)
+     * @param  string $productSku The productid which you wish to retrieve the price list
      *
      * @throws \Swagger\Client\ApiException on non-2xx response
      * @throws \InvalidArgumentException
      * @return \Swagger\Client\Model\PricesResponse
      */
-    public function pricesGetPricesAsync($authorization, $continuationtoken = null, $etailerid = null)
+    public function pricesGetPricesAsync($authorization, $continuationtoken = null, $etailerid = null, $productSku = null)
     {
-        list($response) = $this->pricesGetPricesAsyncWithHttpInfo($authorization, $continuationtoken, $etailerid);
+        list($response) = $this->pricesGetPricesAsyncWithHttpInfo($authorization, $continuationtoken, $etailerid, $productSku);
         return $response;
     }
 
@@ -114,15 +115,16 @@ class PricesApi
      * @param  string $authorization Access token from AAD. Should start with &#39;Bearer &#39;. (required)
      * @param  string $continuationtoken A continuation token returned in an earlier response (optional)
      * @param  string $etailerid The affiliated eTailer for which you wish to retrieve the product list (optional)
+     * @param  string $productSku The productid which you wish to retrieve the price list
      *
      * @throws \Swagger\Client\ApiException on non-2xx response
      * @throws \InvalidArgumentException
      * @return array of \Swagger\Client\Model\PricesResponse, HTTP status code, HTTP response headers (array of strings)
      */
-    public function pricesGetPricesAsyncWithHttpInfo($authorization, $continuationtoken = null, $etailerid = null)
+    public function pricesGetPricesAsyncWithHttpInfo($authorization, $continuationtoken = null, $etailerid = null, $productSku = null)
     {
         $returnType = '\Swagger\Client\Model\PricesResponse';
-        $request = $this->pricesGetPricesAsyncRequest($authorization, $continuationtoken, $etailerid);
+        $request = $this->pricesGetPricesAsyncRequest($authorization, $continuationtoken, $etailerid, $productSku);
 
         try {
             $options = $this->createHttpClientOption();
@@ -215,13 +217,14 @@ class PricesApi
      * @param  string $authorization Access token from AAD. Should start with &#39;Bearer &#39;. (required)
      * @param  string $continuationtoken A continuation token returned in an earlier response (optional)
      * @param  string $etailerid The affiliated eTailer for which you wish to retrieve the product list (optional)
+     * @param  string $productSku The productid which you wish to retrieve the price list
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function pricesGetPricesAsyncAsync($authorization, $continuationtoken = null, $etailerid = null)
+    public function pricesGetPricesAsyncAsync($authorization, $continuationtoken = null, $etailerid = null, $productSku = null)
     {
-        return $this->pricesGetPricesAsyncAsyncWithHttpInfo($authorization, $continuationtoken, $etailerid)
+        return $this->pricesGetPricesAsyncAsyncWithHttpInfo($authorization, $continuationtoken, $etailerid, $productSku)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -237,14 +240,15 @@ class PricesApi
      * @param  string $authorization Access token from AAD. Should start with &#39;Bearer &#39;. (required)
      * @param  string $continuationtoken A continuation token returned in an earlier response (optional)
      * @param  string $etailerid The affiliated eTailer for which you wish to retrieve the product list (optional)
+     * @param  string $productSku The productid which you wish to retrieve the price list
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function pricesGetPricesAsyncAsyncWithHttpInfo($authorization, $continuationtoken = null, $etailerid = null)
+    public function pricesGetPricesAsyncAsyncWithHttpInfo($authorization, $continuationtoken = null, $etailerid = null, $productSku = null)
     {
         $returnType = '\Swagger\Client\Model\PricesResponse';
-        $request = $this->pricesGetPricesAsyncRequest($authorization, $continuationtoken, $etailerid);
+        $request = $this->pricesGetPricesAsyncRequest($authorization, $continuationtoken, $etailerid, $productSku);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -289,11 +293,12 @@ class PricesApi
      * @param  string $authorization Access token from AAD. Should start with &#39;Bearer &#39;. (required)
      * @param  string $continuationtoken A continuation token returned in an earlier response (optional)
      * @param  string $etailerid The affiliated eTailer for which you wish to retrieve the product list (optional)
+     * @param  string $productSku The productid which you wish to retrieve the price list
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    protected function pricesGetPricesAsyncRequest($authorization, $continuationtoken = null, $etailerid = null)
+    protected function pricesGetPricesAsyncRequest($authorization, $continuationtoken = null, $etailerid = null, $productSku = null)
     {
         // verify the required parameter 'authorization' is set
         if ($authorization === null || (is_array($authorization) && count($authorization) === 0)) {
@@ -320,6 +325,10 @@ class PricesApi
         // header params
         if ($authorization !== null) {
             $headerParams['Authorization'] = ObjectSerializer::toHeaderValue($authorization);
+        }
+        //products params
+        if($productSku !== null) {
+            $queryParams['sku'] = ObjectSerializer::toQueryValue($productSku);
         }
 
 
@@ -410,3 +419,4 @@ class PricesApi
         return $options;
     }
 }
+
