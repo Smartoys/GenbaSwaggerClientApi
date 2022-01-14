@@ -57,9 +57,13 @@ class PromotionItem implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $swaggerTypes = [
-        'sku' => 'string',
-        'currency_code' => 'string',
-        'discount_percentage' => 'double'
+        'sku'                 => 'string',
+        'currency_code'       => 'string',
+        'discount_percentage' => 'double',
+        "original_srp"        => 'double',
+        "original_wsp"        => 'double',
+        "discounted_srp"      => 'double',
+        "discounted_wsp"      => 'double'
     ];
 
     /**
@@ -68,9 +72,13 @@ class PromotionItem implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $swaggerFormats = [
-        'sku' => null,
-        'currency_code' => null,
-        'discount_percentage' => 'double'
+        'sku'                 => null,
+        'currency_code'       => null,
+        'discount_percentage' => 'double',
+        "original_srp"        => 'double',
+        "original_wsp"        => 'double',
+        "discounted_srp"      => 'double',
+        "discounted_wsp"      => 'double'
     ];
 
     /**
@@ -100,9 +108,13 @@ class PromotionItem implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $attributeMap = [
-        'sku' => 'Sku',
-        'currency_code' => 'CurrencyCode',
-        'discount_percentage' => 'DiscountPercentage'
+        'sku'                 => 'Sku',
+        'currency_code'       => 'CurrencyCode',
+        'discount_percentage' => 'DiscountPercentage',
+        'original_srp'        => 'OriginalSRP',
+        'original_wsp'        => 'OriginalWSP',
+        'discounted_srp'      => 'DiscountedSRP',
+        'discounted_wsp'      => 'DiscountedWSP'
     ];
 
     /**
@@ -111,9 +123,13 @@ class PromotionItem implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $setters = [
-        'sku' => 'setSku',
-        'currency_code' => 'setCurrencyCode',
-        'discount_percentage' => 'setDiscountPercentage'
+        'sku'                 => 'setSku',
+        'currency_code'       => 'setCurrencyCode',
+        'discount_percentage' => 'setDiscountPercentage',
+        "original_srp"        => 'setOriginalSRP',
+        "original_wsp"        => 'setOriginalWSP',
+        "discounted_srp"      => 'setDiscountedSRP',
+        "discounted_wsp"      => 'setDiscountedWSP'
     ];
 
     /**
@@ -122,9 +138,13 @@ class PromotionItem implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $getters = [
-        'sku' => 'getSku',
-        'currency_code' => 'getCurrencyCode',
-        'discount_percentage' => 'getDiscountPercentage'
+        'sku'                 => 'getSku',
+        'currency_code'       => 'getCurrencyCode',
+        'discount_percentage' => 'getDiscountPercentage',
+        "original_srp"        => 'getOriginalSRP',
+        "original_wsp"        => 'getOriginalWSP',
+        "discounted_srp"      => 'getDiscountedSRP',
+        "discounted_wsp"      => 'getDiscountedWSP'
     ];
 
     /**
@@ -168,10 +188,6 @@ class PromotionItem implements ModelInterface, ArrayAccess
         return self::$swaggerModelName;
     }
 
-    
-
-    
-
     /**
      * Associative array for storing property values
      *
@@ -187,9 +203,13 @@ class PromotionItem implements ModelInterface, ArrayAccess
      */
     public function __construct(array $data = null)
     {
-        $this->container['sku'] = isset($data['sku']) ? $data['sku'] : null;
-        $this->container['currency_code'] = isset($data['currency_code']) ? $data['currency_code'] : null;
+        $this->container['sku']                 = isset($data['sku']) ? $data['sku'] : null;
+        $this->container['currency_code']       = isset($data['currency_code']) ? $data['currency_code'] : null;
         $this->container['discount_percentage'] = isset($data['discount_percentage']) ? $data['discount_percentage'] : null;
+        $this->container['original_srp']        = isset($data['original_srp']) ? $data['original_srp'] : null;
+        $this->container['original_wsp']        = isset($data['original_wsp']) ? $data['original_wsp'] : null;
+        $this->container['discounted_srp']      = isset($data['discounted_srp']) ? $data['discounted_srp'] : null;
+        $this->container['discounted_wsp']      = isset($data['discounted_wsp']) ? $data['discounted_wsp'] : null;
     }
 
     /**
@@ -287,6 +307,75 @@ class PromotionItem implements ModelInterface, ArrayAccess
 
         return $this;
     }
+
+    /**
+     * @param $original_srp
+     * @return mixed
+     */
+    public function getOriginalSRP($original_srp) {
+        return $this->container['original_srp'];
+    }
+
+    /**
+     * @param $original_srp
+     * @return $this
+     */
+    public function setOriginalSRP($original_srp) {
+        $this->container['original_srp'] = $original_srp;
+        return $this;
+    }
+
+    /**
+     * @param $original_wsp
+     * @return mixed
+     */
+    public function getOriginalWSP($original_wsp) {
+        return $this->container['original_wsp'];
+    }
+
+    /**
+     * @param $original_wsp
+     * @return $this
+     */
+    public function setOriginalWSP($original_wsp) {
+        $this->container['original_wsp'] = $original_wsp;
+        return $this;
+    }
+
+    /**
+     * @param $discounted_srp
+     * @return mixed
+     */
+    public function getDiscountedSRP($discounted_srp) {
+        return $this->container['discounted_srp'];
+    }
+
+    /**
+     * @param $discounted_srp
+     * @return $this
+     */
+    public function setDiscountedSRP($discounted_srp) {
+        $this->container['discounted_srp'] = $discounted_srp;
+        return $this;
+    }
+
+    /**
+     * @param $discounted_wsp
+     * @return mixed
+     */
+    public function getDiscountedWSP($discounted_wsp) {
+        return $this->container['discounted_wsp'];
+    }
+
+    /**
+     * @param $discounted_wsp
+     * @return $this
+     */
+    public function setDiscountedWSP($discounted_wsp) {
+        $this->container['discounted_wsp'] = $discounted_wsp;
+        return $this;
+    }
+
     /**
      * Returns true if offset exists. False otherwise.
      *
