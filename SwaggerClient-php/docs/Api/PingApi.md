@@ -4,7 +4,7 @@ All URIs are relative to *https://api-dev.genbadigital.io*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**pingPingAsync**](PingApi.md#pingPingAsync) | **GET** /api/v3-0/ping | Test connection to the API
+[**pingPingAsync**](PingApi.md#pingPingAsync) | **GET** /api/v3-8/ping | Test connection to the API
 
 
 # **pingPingAsync**

@@ -307,7 +307,7 @@ class PromotionsApi
             );
         }
 
-        $resourcePath = '/api/v3-0/promotions';
+        $resourcePath = '/api/v3-8/promotions';
         $formParams = [];
         $queryParams = [];
         $headerParams = [];

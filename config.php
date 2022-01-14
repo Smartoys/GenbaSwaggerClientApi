@@ -32,7 +32,7 @@ $genbaConfig->certificatePassword = "[PASSWORD_OF_YOUR_CERTIFICATE]";
 $genbaConfig->resourceID = "77f1a141-003b-4b0e-b5e6-198220417ce9";
 $genbaConfig->identifierUrl = "https://aad-snd.genbadigital.io/" . $genbaConfig->customerAccountNumber;
 $genbaConfig->baseUrl = 'https://sandbox.genbadigital.io';
-$genbaConfig->pingEndpoint = $genbaConfig->baseUrl . '/api/v3-0/ping';
+$genbaConfig->pingEndpoint = $genbaConfig->baseUrl . '/api/v3-8/ping';
 
 // ****************************************************************************************************
 // Production configuration
@@ -41,7 +41,7 @@ $genbaConfig->pingEndpoint = $genbaConfig->baseUrl . '/api/v3-0/ping';
 //$resourceID = "77f1a141-003b-4b0e-b5e6-198220417ce9";
 //$identifierUrl = "https://aad.genbadigital.io/" . $customerAccountNumber;
 //$genbaConfig->baseUrl = 'https://api.genbadigital.io';
-//$genbaConfig->pingEndpoint = $genbaConfig->baseUrl . '/api/v3-0/ping';
+//$genbaConfig->pingEndpoint = $genbaConfig->baseUrl . '/api/v3-8/ping';
 
 // ****************************************************************************************************
 // Universal configuration

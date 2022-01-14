@@ -311,7 +311,7 @@ class OrdersApi
             );
         }
 
-        $resourcePath = '/api/v3-0/orders/{orderid}';
+        $resourcePath = '/api/v3-8/orders/{orderid}';
         $formParams = [];
         $queryParams = [];
         $headerParams = [];
@@ -624,7 +624,7 @@ class OrdersApi
             );
         }
 
-        $resourcePath = '/api/v3-0/orders/ctid/{ctid}';
+        $resourcePath = '/api/v3-8/orders/ctid/{ctid}';
         $formParams = [];
         $queryParams = [];
         $headerParams = [];
@@ -948,7 +948,7 @@ class OrdersApi
             );
         }
 
-        $resourcePath = '/api/v3-0/orders/{orderid}';
+        $resourcePath = '/api/v3-8/orders/{orderid}';
         $formParams = [];
         $queryParams = [];
         $headerParams = [];
@@ -1264,7 +1264,7 @@ class OrdersApi
             );
         }
 
-        $resourcePath = '/api/v3-0/orders';
+        $resourcePath = '/api/v3-8/orders';
         $formParams = [];
         $queryParams = [];
         $headerParams = [];

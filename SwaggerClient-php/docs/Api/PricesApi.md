@@ -4,7 +4,7 @@ All URIs are relative to *https://api-dev.genbadigital.io*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**pricesGetPricesAsync**](PricesApi.md#pricesGetPricesAsync) | **GET** /api/v3-0/prices | Gets a collection of prices
+[**pricesGetPricesAsync**](PricesApi.md#pricesGetPricesAsync) | **GET** /api/v3-8/prices | Gets a collection of prices
 
 
 # **pricesGetPricesAsync**

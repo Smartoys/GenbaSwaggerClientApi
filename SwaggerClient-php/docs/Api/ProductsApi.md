@@ -4,8 +4,8 @@ All URIs are relative to *https://api-dev.genbadigital.io*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**productsGetProductAsync**](ProductsApi.md#productsGetProductAsync) | **GET** /api/v3-0/products/{sku} | Return information about a product
-[**productsGetProductsAsync**](ProductsApi.md#productsGetProductsAsync) | **GET** /api/v3-0/products | Gets a collection of available products
+[**productsGetProductAsync**](ProductsApi.md#productsGetProductAsync) | **GET** /api/v3-8/products/{sku} | Return information about a product
+[**productsGetProductsAsync**](ProductsApi.md#productsGetProductsAsync) | **GET** /api/v3-8/products | Gets a collection of available products
 
 
 # **productsGetProductAsync**

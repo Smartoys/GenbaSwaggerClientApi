@@ -84,25 +84,25 @@ All URIs are relative to *https://api-dev.genbadigital.io*
 
 Class | Method | HTTP request | Description
 ------------ | ------------- | ------------- | -------------
-*DirectEntitlementApi* | [**directEntitlementActivateAsync**](docs/Api/DirectEntitlementApi.md#directentitlementactivateasync) | **POST** /api/v3-0/directentitlement/activations | Perform a direct entitlement activation
-*DirectEntitlementApi* | [**directEntitlementPerformActivationActionAsync**](docs/Api/DirectEntitlementApi.md#directentitlementperformactivationactionasync) | **POST** /api/v3-0/directentitlement/activations/{activationid} | Perform an action on an activation
-*DirectEntitlementApi* | [**directEntitlementPerformRedemptionActionAsync**](docs/Api/DirectEntitlementApi.md#directentitlementperformredemptionactionasync) | **POST** /api/v3-0/directentitlement/redemptions/{redemptionid} | Perform an action on a redemption
-*DirectEntitlementApi* | [**directEntitlementRedeemAsync**](docs/Api/DirectEntitlementApi.md#directentitlementredeemasync) | **POST** /api/v3-0/directentitlement/redemptions | Perform a direct entitlement redemption
-*DirectEntitlementApi* | [**directEntitlementRetrieveActivationAsync**](docs/Api/DirectEntitlementApi.md#directentitlementretrieveactivationasync) | **GET** /api/v3-0/directentitlement/activations/{activationid} | Retrieve a direct entitlement activation
-*DirectEntitlementApi* | [**directEntitlementRetrieveActivationByCtidAsync**](docs/Api/DirectEntitlementApi.md#directentitlementretrieveactivationbyctidasync) | **GET** /api/v3-0/directentitlement/activations/ctid/{ctid} | Retrieve a direct entitlement activation by its Client Transaction ID
-*DirectEntitlementApi* | [**directEntitlementRetrieveRedemptionAsync**](docs/Api/DirectEntitlementApi.md#directentitlementretrieveredemptionasync) | **GET** /api/v3-0/directentitlement/redemptions/{redemptionid} | Retrieve a direct entitlement redemption
-*DirectEntitlementApi* | [**directEntitlementRetrieveRedemptionByCtidAsync**](docs/Api/DirectEntitlementApi.md#directentitlementretrieveredemptionbyctidasync) | **GET** /api/v3-0/directentitlement/redemptions/ctid/{ctid} | Retrieve a direct entitlement redemption by its Client Transaction ID
-*OrdersApi* | [**ordersGetOrderAsync**](docs/Api/OrdersApi.md#ordersgetorderasync) | **GET** /api/v3-0/orders/{orderid} | Retrieve an order
-*OrdersApi* | [**ordersGetOrderByCtidAsync**](docs/Api/OrdersApi.md#ordersgetorderbyctidasync) | **GET** /api/v3-0/orders/ctid/{ctid} | Retrieve an order by CTID
-*OrdersApi* | [**ordersPerformOrderActionAsync**](docs/Api/OrdersApi.md#ordersperformorderactionasync) | **POST** /api/v3-0/orders/{orderid} | Perform an action on an order
-*OrdersApi* | [**ordersPlaceOrderAsync**](docs/Api/OrdersApi.md#ordersplaceorderasync) | **POST** /api/v3-0/orders | Order a product key
-*PingApi* | [**pingPingAsync**](docs/Api/PingApi.md#pingpingasync) | **GET** /api/v3-0/ping | Test connection to the API
-*PricesApi* | [**pricesGetPricesAsync**](docs/Api/PricesApi.md#pricesgetpricesasync) | **GET** /api/v3-0/prices | Gets a collection of prices
-*ProductsApi* | [**productsGetProductAsync**](docs/Api/ProductsApi.md#productsgetproductasync) | **GET** /api/v3-0/products/{sku} | Return information about a product
-*ProductsApi* | [**productsGetProductsAsync**](docs/Api/ProductsApi.md#productsgetproductsasync) | **GET** /api/v3-0/products | Gets a collection of available products
-*PromotionsApi* | [**promotionsGetPromotionsAsync**](docs/Api/PromotionsApi.md#promotionsgetpromotionsasync) | **GET** /api/v3-0/promotions | Gets a collection of available promotions
-*ReservationsApi* | [**reservationsGetReservation**](docs/Api/ReservationsApi.md#reservationsgetreservation) | **GET** /api/v3-0/reservations/{reservationid} | Retrieve a reservation
-*ReservationsApi* | [**reservationsPlaceReservationAsync**](docs/Api/ReservationsApi.md#reservationsplacereservationasync) | **POST** /api/v3-0/reservations | Place a reservation for a product
+*DirectEntitlementApi* | [**directEntitlementActivateAsync**](docs/Api/DirectEntitlementApi.md#directentitlementactivateasync) | **POST** /api/v3-8/directentitlement/activations | Perform a direct entitlement activation
+*DirectEntitlementApi* | [**directEntitlementPerformActivationActionAsync**](docs/Api/DirectEntitlementApi.md#directentitlementperformactivationactionasync) | **POST** /api/v3-8/directentitlement/activations/{activationid} | Perform an action on an activation
+*DirectEntitlementApi* | [**directEntitlementPerformRedemptionActionAsync**](docs/Api/DirectEntitlementApi.md#directentitlementperformredemptionactionasync) | **POST** /api/v3-8/directentitlement/redemptions/{redemptionid} | Perform an action on a redemption
+*DirectEntitlementApi* | [**directEntitlementRedeemAsync**](docs/Api/DirectEntitlementApi.md#directentitlementredeemasync) | **POST** /api/v3-8/directentitlement/redemptions | Perform a direct entitlement redemption
+*DirectEntitlementApi* | [**directEntitlementRetrieveActivationAsync**](docs/Api/DirectEntitlementApi.md#directentitlementretrieveactivationasync) | **GET** /api/v3-8/directentitlement/activations/{activationid} | Retrieve a direct entitlement activation
+*DirectEntitlementApi* | [**directEntitlementRetrieveActivationByCtidAsync**](docs/Api/DirectEntitlementApi.md#directentitlementretrieveactivationbyctidasync) | **GET** /api/v3-8/directentitlement/activations/ctid/{ctid} | Retrieve a direct entitlement activation by its Client Transaction ID
+*DirectEntitlementApi* | [**directEntitlementRetrieveRedemptionAsync**](docs/Api/DirectEntitlementApi.md#directentitlementretrieveredemptionasync) | **GET** /api/v3-8/directentitlement/redemptions/{redemptionid} | Retrieve a direct entitlement redemption
+*DirectEntitlementApi* | [**directEntitlementRetrieveRedemptionByCtidAsync**](docs/Api/DirectEntitlementApi.md#directentitlementretrieveredemptionbyctidasync) | **GET** /api/v3-8/directentitlement/redemptions/ctid/{ctid} | Retrieve a direct entitlement redemption by its Client Transaction ID
+*OrdersApi* | [**ordersGetOrderAsync**](docs/Api/OrdersApi.md#ordersgetorderasync) | **GET** /api/v3-8/orders/{orderid} | Retrieve an order
+*OrdersApi* | [**ordersGetOrderByCtidAsync**](docs/Api/OrdersApi.md#ordersgetorderbyctidasync) | **GET** /api/v3-8/orders/ctid/{ctid} | Retrieve an order by CTID
+*OrdersApi* | [**ordersPerformOrderActionAsync**](docs/Api/OrdersApi.md#ordersperformorderactionasync) | **POST** /api/v3-8/orders/{orderid} | Perform an action on an order
+*OrdersApi* | [**ordersPlaceOrderAsync**](docs/Api/OrdersApi.md#ordersplaceorderasync) | **POST** /api/v3-8/orders | Order a product key
+*PingApi* | [**pingPingAsync**](docs/Api/PingApi.md#pingpingasync) | **GET** /api/v3-8/ping | Test connection to the API
+*PricesApi* | [**pricesGetPricesAsync**](docs/Api/PricesApi.md#pricesgetpricesasync) | **GET** /api/v3-8/prices | Gets a collection of prices
+*ProductsApi* | [**productsGetProductAsync**](docs/Api/ProductsApi.md#productsgetproductasync) | **GET** /api/v3-8/products/{sku} | Return information about a product
+*ProductsApi* | [**productsGetProductsAsync**](docs/Api/ProductsApi.md#productsgetproductsasync) | **GET** /api/v3-8/products | Gets a collection of available products
+*PromotionsApi* | [**promotionsGetPromotionsAsync**](docs/Api/PromotionsApi.md#promotionsgetpromotionsasync) | **GET** /api/v3-8/promotions | Gets a collection of available promotions
+*ReservationsApi* | [**reservationsGetReservation**](docs/Api/ReservationsApi.md#reservationsgetreservation) | **GET** /api/v3-8/reservations/{reservationid} | Retrieve a reservation
+*ReservationsApi* | [**reservationsPlaceReservationAsync**](docs/Api/ReservationsApi.md#reservationsplacereservationasync) | **POST** /api/v3-8/reservations | Place a reservation for a product
 
 
 ## Documentation For Models

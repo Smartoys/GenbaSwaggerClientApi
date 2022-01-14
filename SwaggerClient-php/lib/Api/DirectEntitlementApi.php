@@ -303,7 +303,7 @@ class DirectEntitlementApi
             );
         }
 
-        $resourcePath = '/api/v3-0/directentitlement/activations';
+        $resourcePath = '/api/v3-8/directentitlement/activations';
         $formParams = [];
         $queryParams = [];
         $headerParams = [];
@@ -622,7 +622,7 @@ class DirectEntitlementApi
             );
         }
 
-        $resourcePath = '/api/v3-0/directentitlement/activations/{activationid}';
+        $resourcePath = '/api/v3-8/directentitlement/activations/{activationid}';
         $formParams = [];
         $queryParams = [];
         $headerParams = [];
@@ -949,7 +949,7 @@ class DirectEntitlementApi
             );
         }
 
-        $resourcePath = '/api/v3-0/directentitlement/redemptions/{redemptionid}';
+        $resourcePath = '/api/v3-8/directentitlement/redemptions/{redemptionid}';
         $formParams = [];
         $queryParams = [];
         $headerParams = [];
@@ -1257,7 +1257,7 @@ class DirectEntitlementApi
             );
         }
 
-        $resourcePath = '/api/v3-0/directentitlement/redemptions';
+        $resourcePath = '/api/v3-8/directentitlement/redemptions';
         $formParams = [];
         $queryParams = [];
         $headerParams = [];
@@ -1565,7 +1565,7 @@ class DirectEntitlementApi
             );
         }
 
-        $resourcePath = '/api/v3-0/directentitlement/activations/{activationid}';
+        $resourcePath = '/api/v3-8/directentitlement/activations/{activationid}';
         $formParams = [];
         $queryParams = [];
         $headerParams = [];
@@ -1878,7 +1878,7 @@ class DirectEntitlementApi
             );
         }
 
-        $resourcePath = '/api/v3-0/directentitlement/activations/ctid/{ctid}';
+        $resourcePath = '/api/v3-8/directentitlement/activations/ctid/{ctid}';
         $formParams = [];
         $queryParams = [];
         $headerParams = [];
@@ -2191,7 +2191,7 @@ class DirectEntitlementApi
             );
         }
 
-        $resourcePath = '/api/v3-0/directentitlement/redemptions/{redemptionid}';
+        $resourcePath = '/api/v3-8/directentitlement/redemptions/{redemptionid}';
         $formParams = [];
         $queryParams = [];
         $headerParams = [];
@@ -2504,7 +2504,7 @@ class DirectEntitlementApi
             );
         }
 
-        $resourcePath = '/api/v3-0/directentitlement/redemptions/ctid/{ctid}';
+        $resourcePath = '/api/v3-8/directentitlement/redemptions/ctid/{ctid}';
         $formParams = [];
         $queryParams = [];
         $headerParams = [];

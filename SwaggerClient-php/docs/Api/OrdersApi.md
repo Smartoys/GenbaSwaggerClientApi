@@ -4,10 +4,10 @@ All URIs are relative to *https://api-dev.genbadigital.io*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**ordersGetOrderAsync**](OrdersApi.md#ordersGetOrderAsync) | **GET** /api/v3-0/orders/{orderid} | Retrieve an order
-[**ordersGetOrderByCtidAsync**](OrdersApi.md#ordersGetOrderByCtidAsync) | **GET** /api/v3-0/orders/ctid/{ctid} | Retrieve an order by CTID
-[**ordersPerformOrderActionAsync**](OrdersApi.md#ordersPerformOrderActionAsync) | **POST** /api/v3-0/orders/{orderid} | Perform an action on an order
-[**ordersPlaceOrderAsync**](OrdersApi.md#ordersPlaceOrderAsync) | **POST** /api/v3-0/orders | Order a product key
+[**ordersGetOrderAsync**](OrdersApi.md#ordersGetOrderAsync) | **GET** /api/v3-8/orders/{orderid} | Retrieve an order
+[**ordersGetOrderByCtidAsync**](OrdersApi.md#ordersGetOrderByCtidAsync) | **GET** /api/v3-8/orders/ctid/{ctid} | Retrieve an order by CTID
+[**ordersPerformOrderActionAsync**](OrdersApi.md#ordersPerformOrderActionAsync) | **POST** /api/v3-8/orders/{orderid} | Perform an action on an order
+[**ordersPlaceOrderAsync**](OrdersApi.md#ordersPlaceOrderAsync) | **POST** /api/v3-8/orders | Order a product key
 
 
 # **ordersGetOrderAsync**
