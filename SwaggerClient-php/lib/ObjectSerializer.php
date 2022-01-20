@@ -258,7 +258,7 @@ class ObjectSerializer
             // be interpreted as a missing field/value. Let's handle
             // this graceful.
             if (!empty($data)) {
-                return new \DateTime($data);
+                return new \DateTime($data, new \DateTimeZone('UTC'));
             } else {
                 return null;
             }
