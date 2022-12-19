@@ -58,7 +58,8 @@ class OrderAction implements ModelInterface, ArrayAccess
       */
     protected static $swaggerTypes = [
         'action' => 'string',
-        'reason' => 'string'
+        'reason' => 'string',
+        'returnReasonCode' => 'int',
     ];
 
     /**
@@ -68,7 +69,8 @@ class OrderAction implements ModelInterface, ArrayAccess
       */
     protected static $swaggerFormats = [
         'action' => null,
-        'reason' => null
+        'reason' => null,
+        'returnReasonCode' => null
     ];
 
     /**
@@ -99,7 +101,8 @@ class OrderAction implements ModelInterface, ArrayAccess
      */
     protected static $attributeMap = [
         'action' => 'Action',
-        'reason' => 'Reason'
+        'reason' => 'Reason',
+        'returnReasonCode' => 'ReturnReasonCode'
     ];
 
     /**
@@ -109,7 +112,8 @@ class OrderAction implements ModelInterface, ArrayAccess
      */
     protected static $setters = [
         'action' => 'setAction',
-        'reason' => 'setReason'
+        'reason' => 'setReason',
+        'returnReasonCode' => 'setReturnReasonCode',
     ];
 
     /**
@@ -119,7 +123,8 @@ class OrderAction implements ModelInterface, ArrayAccess
      */
     protected static $getters = [
         'action' => 'getAction',
-        'reason' => 'getReason'
+        'reason' => 'getReason',
+        'returnReasonCode' => 'getReturnReasonCode',
     ];
 
     /**
@@ -163,10 +168,6 @@ class OrderAction implements ModelInterface, ArrayAccess
         return self::$swaggerModelName;
     }
 
-    
-
-    
-
     /**
      * Associative array for storing property values
      *
@@ -184,6 +185,7 @@ class OrderAction implements ModelInterface, ArrayAccess
     {
         $this->container['action'] = isset($data['action']) ? $data['action'] : null;
         $this->container['reason'] = isset($data['reason']) ? $data['reason'] : null;
+        $this->container['returnReasonCode'] = isset($data['returnReasonCode']) ? $data['returnReasonCode'] : null;
     }
 
     /**
@@ -198,6 +200,7 @@ class OrderAction implements ModelInterface, ArrayAccess
         if ($this->container['action'] === null) {
             $invalidProperties[] = "'action' can't be null";
         }
+
         return $invalidProperties;
     }
 
@@ -238,6 +241,16 @@ class OrderAction implements ModelInterface, ArrayAccess
     }
 
     /**
+     * Gets returnReasonCode
+     *
+     * @return int
+     */
+    public function getReturnReasonCode()
+    {
+        return $this->container['returnReasonCode'];
+    }
+
+    /**
      * Gets reason
      *
      * @return string
@@ -260,6 +273,20 @@ class OrderAction implements ModelInterface, ArrayAccess
 
         return $this;
     }
+
+    /**
+     * Sets reason
+     *
+     * @param integer $returnReasonCode returnReasonCode
+     *
+     * @return $this
+     */
+    public function setReturnReasonCode($returnReasonCode)
+    {
+        $this->container['returnReasonCode'] = $returnReasonCode;
+        return $this;
+    }
+
     /**
      * Returns true if offset exists. False otherwise.
      *

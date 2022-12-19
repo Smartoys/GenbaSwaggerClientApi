@@ -125,7 +125,6 @@ class PromotionsApi
     {
         $returnType = '\Swagger\Client\Model\PromotionsResponse';
         $request = $this->promotionsGetPromotionsAsyncRequest($authorization, $continuationtoken, $from_date, $to_date);
-
         try {
             $options = $this->createHttpClientOption();
             try {
