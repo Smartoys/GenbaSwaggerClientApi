@@ -1,0 +1,49 @@
+version: "3.7"
+services:
+    #Laravel App
+    genba_swagger_app:
+        user: "${UID}:${GID}"
+        build:
+            args:
+                USER_NAME: horstman
+                PUID: ${UID}
+                PGID: ${GID}
+                REMOTE_CLIENT_HOST: "172.20.0.1"
+            context: .
+            dockerfile: ./docker/Dockerfile
+        depends_on:
+            - database
+        expose:
+            - "9100"
+        extra_hosts:
+            - "shop.oo:185.200.202.17"
+        working_dir: /var/www/html/dlgamer
+        volumes:
+            - /home/horstman/Workspace/GenbaSwaggerClientApi:/var/www/html/dlgamer
+        networks:
+            - genba-swagger-app
+            - traefik-global-proxy
+        labels:
+            - "traefik.enable=true"
+            - "traefik.http.routers.genba-swagger.rule=Host(`genba-swagger.local.dlgamer`)"
+            - "traefik.http.routers.genba-swagger.tls=true"
+            - "traefik.docker.network=traefik-global-proxy"
+
+    database:
+        image: mysql:5.5
+        volumes:
+            - ../mysqldata:/var/lib/mysql
+        expose:
+            - "3306"
+        environment:
+            - MYSQL_ROOT_PASSWORD=root
+            - MYSQL_USER=admin
+            - MYSQL_PASSWORD=admin
+            - MYSQL_DATABASE=dlgamer
+        networks:
+            - genba-swagger-app
+networks:
+    genba-swagger-app:
+        driver: bridge
+    traefik-global-proxy:
+        external: true
