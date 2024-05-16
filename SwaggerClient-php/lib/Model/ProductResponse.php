@@ -648,7 +648,7 @@ class ProductResponse implements ModelInterface, ArrayAccess
     /**
      * Gets global_trade_item_numbers
      *
-     * @return \Swagger\Client\Model\GlobalTradeItemNumber[]
+     * @return GlobalTradeItemNumber[]
      */
     public function getGlobalTradeItemNumbers()
     {
@@ -658,7 +658,7 @@ class ProductResponse implements ModelInterface, ArrayAccess
     /**
      * Sets global_trade_item_numbers
      *
-     * @param \Swagger\Client\Model\GlobalTradeItemNumber[] $global_trade_item_numbers Global Trade Item Numbers (GTIN)
+     * @param GlobalTradeItemNumber[] $global_trade_item_numbers Global Trade Item Numbers (GTIN)
      *
      * @return $this
      */
@@ -672,7 +672,7 @@ class ProductResponse implements ModelInterface, ArrayAccess
     /**
      * Gets rating_systems
      *
-     * @return \Swagger\Client\Model\RatingSystem[]
+     * @return RatingSystem[]
      */
     public function getRatingSystems()
     {
@@ -682,7 +682,7 @@ class ProductResponse implements ModelInterface, ArrayAccess
     /**
      * Sets rating_systems
      *
-     * @param \Swagger\Client\Model\RatingSystem[] $rating_systems List of rating systems
+     * @param RatingSystem[] $rating_systems List of rating systems
      *
      * @return $this
      */
@@ -696,7 +696,7 @@ class ProductResponse implements ModelInterface, ArrayAccess
     /**
      * Gets languages
      *
-     * @return \Swagger\Client\Model\Language[]
+     * @return Language[]
      */
     public function getLanguages()
     {
@@ -706,7 +706,7 @@ class ProductResponse implements ModelInterface, ArrayAccess
     /**
      * Sets languages
      *
-     * @param \Swagger\Client\Model\Language[] $languages List of localised texts for the product
+     * @param Language[] $languages List of localised texts for the product
      *
      * @return $this
      */
@@ -816,7 +816,7 @@ class ProductResponse implements ModelInterface, ArrayAccess
     /**
      * Gets restrictions
      *
-     * @return \Swagger\Client\Model\Restriction
+     * @return Restriction
      */
     public function getRestrictions()
     {
@@ -826,7 +826,7 @@ class ProductResponse implements ModelInterface, ArrayAccess
     /**
      * Sets restrictions
      *
-     * @param \Swagger\Client\Model\Restriction $restrictions restrictions
+     * @param Restriction $restrictions restrictions
      *
      * @return $this
      */

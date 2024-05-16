@@ -2,7 +2,7 @@
     "name": "smartoys/genbaswaggerclientapi",
     "description": "Genba Swagger Client API",
     "require": {
-        "php": ">=5.5",
+        "php": ">=7.1",
         "ext-curl": "*",
         "ext-json": "*",
         "ext-mbstring": "*",
