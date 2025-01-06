@@ -4,14 +4,14 @@ All URIs are relative to *https://api-dev.genbadigital.io*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**directEntitlementActivateAsync**](DirectEntitlementApi.md#directEntitlementActivateAsync) | **POST** /api/v3-8/directentitlement/activations | Perform a direct entitlement activation
-[**directEntitlementPerformActivationActionAsync**](DirectEntitlementApi.md#directEntitlementPerformActivationActionAsync) | **POST** /api/v3-8/directentitlement/activations/{activationid} | Perform an action on an activation
-[**directEntitlementPerformRedemptionActionAsync**](DirectEntitlementApi.md#directEntitlementPerformRedemptionActionAsync) | **POST** /api/v3-8/directentitlement/redemptions/{redemptionid} | Perform an action on a redemption
-[**directEntitlementRedeemAsync**](DirectEntitlementApi.md#directEntitlementRedeemAsync) | **POST** /api/v3-8/directentitlement/redemptions | Perform a direct entitlement redemption
-[**directEntitlementRetrieveActivationAsync**](DirectEntitlementApi.md#directEntitlementRetrieveActivationAsync) | **GET** /api/v3-8/directentitlement/activations/{activationid} | Retrieve a direct entitlement activation
-[**directEntitlementRetrieveActivationByCtidAsync**](DirectEntitlementApi.md#directEntitlementRetrieveActivationByCtidAsync) | **GET** /api/v3-8/directentitlement/activations/ctid/{ctid} | Retrieve a direct entitlement activation by its Client Transaction ID
-[**directEntitlementRetrieveRedemptionAsync**](DirectEntitlementApi.md#directEntitlementRetrieveRedemptionAsync) | **GET** /api/v3-8/directentitlement/redemptions/{redemptionid} | Retrieve a direct entitlement redemption
-[**directEntitlementRetrieveRedemptionByCtidAsync**](DirectEntitlementApi.md#directEntitlementRetrieveRedemptionByCtidAsync) | **GET** /api/v3-8/directentitlement/redemptions/ctid/{ctid} | Retrieve a direct entitlement redemption by its Client Transaction ID
+[**directEntitlementActivateAsync**](DirectEntitlementApi.md#directEntitlementActivateAsync) | **POST** /api/v3-11/directentitlement/activations | Perform a direct entitlement activation
+[**directEntitlementPerformActivationActionAsync**](DirectEntitlementApi.md#directEntitlementPerformActivationActionAsync) | **POST** /api/v3-11/directentitlement/activations/{activationid} | Perform an action on an activation
+[**directEntitlementPerformRedemptionActionAsync**](DirectEntitlementApi.md#directEntitlementPerformRedemptionActionAsync) | **POST** /api/v3-11/directentitlement/redemptions/{redemptionid} | Perform an action on a redemption
+[**directEntitlementRedeemAsync**](DirectEntitlementApi.md#directEntitlementRedeemAsync) | **POST** /api/v3-11/directentitlement/redemptions | Perform a direct entitlement redemption
+[**directEntitlementRetrieveActivationAsync**](DirectEntitlementApi.md#directEntitlementRetrieveActivationAsync) | **GET** /api/v3-11/directentitlement/activations/{activationid} | Retrieve a direct entitlement activation
+[**directEntitlementRetrieveActivationByCtidAsync**](DirectEntitlementApi.md#directEntitlementRetrieveActivationByCtidAsync) | **GET** /api/v3-11/directentitlement/activations/ctid/{ctid} | Retrieve a direct entitlement activation by its Client Transaction ID
+[**directEntitlementRetrieveRedemptionAsync**](DirectEntitlementApi.md#directEntitlementRetrieveRedemptionAsync) | **GET** /api/v3-11/directentitlement/redemptions/{redemptionid} | Retrieve a direct entitlement redemption
+[**directEntitlementRetrieveRedemptionByCtidAsync**](DirectEntitlementApi.md#directEntitlementRetrieveRedemptionByCtidAsync) | **GET** /api/v3-11/directentitlement/redemptions/ctid/{ctid} | Retrieve a direct entitlement redemption by its Client Transaction ID
 
 
 # **directEntitlementActivateAsync**

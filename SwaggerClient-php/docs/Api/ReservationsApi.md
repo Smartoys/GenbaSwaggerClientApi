@@ -4,8 +4,8 @@ All URIs are relative to *https://api-dev.genbadigital.io*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**reservationsGetReservation**](ReservationsApi.md#reservationsGetReservation) | **GET** /api/v3-8/reservations/{reservationid} | Retrieve a reservation
-[**reservationsPlaceReservationAsync**](ReservationsApi.md#reservationsPlaceReservationAsync) | **POST** /api/v3-8/reservations | Place a reservation for a product
+[**reservationsGetReservation**](ReservationsApi.md#reservationsGetReservation) | **GET** /api/v3-11/reservations/{reservationid} | Retrieve a reservation
+[**reservationsPlaceReservationAsync**](ReservationsApi.md#reservationsPlaceReservationAsync) | **POST** /api/v3-11/reservations | Place a reservation for a product
 
 
 # **reservationsGetReservation**

@@ -317,7 +317,7 @@ class ProductsApi
             );
         }
 
-        $resourcePath = '/api/v3-8/products/{sku}';
+        $resourcePath = '/api/v3-11/products/{sku}';
         $formParams = [];
         $queryParams = [];
         $headerParams = [];
@@ -645,7 +645,7 @@ class ProductsApi
             );
         }
 
-        $resourcePath = '/api/v3-8/products';
+        $resourcePath = '/api/v3-11/products';
         $formParams = [];
         $queryParams = [];
         $headerParams = [];

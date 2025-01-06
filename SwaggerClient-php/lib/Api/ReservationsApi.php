@@ -312,7 +312,7 @@ class ReservationsApi
             );
         }
 
-        $resourcePath = '/api/v3-8/reservations/{reservationid}';
+        $resourcePath = '/api/v3-11/reservations/{reservationid}';
         $formParams = [];
         $queryParams = [];
         $headerParams = [];
@@ -625,7 +625,7 @@ class ReservationsApi
             );
         }
 
-        $resourcePath = '/api/v3-8/reservations';
+        $resourcePath = '/api/v3-11/reservations';
         $formParams = [];
         $queryParams = [];
         $headerParams = [];

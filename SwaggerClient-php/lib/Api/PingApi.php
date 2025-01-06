@@ -285,7 +285,7 @@ class PingApi
             );
         }
 
-        $resourcePath = '/api/v3-8/ping';
+        $resourcePath = '/api/v3-11/ping';
         $formParams = [];
         $queryParams = [];
         $headerParams = [];

@@ -4,7 +4,7 @@ All URIs are relative to *https://api-dev.genbadigital.io*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**promotionsGetPromotionsAsync**](PromotionsApi.md#promotionsGetPromotionsAsync) | **GET** /api/v3-8/promotions | Gets a collection of available promotions
+[**promotionsGetPromotionsAsync**](PromotionsApi.md#promotionsGetPromotionsAsync) | **GET** /api/v3-11/promotions | Gets a collection of available promotions
 
 
 # **promotionsGetPromotionsAsync**

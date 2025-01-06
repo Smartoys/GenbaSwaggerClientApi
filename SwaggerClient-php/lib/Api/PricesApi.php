@@ -308,7 +308,7 @@ class PricesApi
             );
         }
 
-        $resourcePath = '/api/v3-8/prices';
+        $resourcePath = '/api/v3-11/prices';
         $formParams = [];
         $queryParams = [];
         $headerParams = [];
