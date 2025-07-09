@@ -93,7 +93,7 @@ class DirectEntitlementApi
      * Perform a direct entitlement activation
      *
      * @param  \Swagger\Client\Model\DirectEntitlementActivationRequest $request Request specifying your direct entitlement activation (required)
-     * @param  string $authorization Access token from AAD. Should start with &#39;Bearer &#39;. (required)
+     * @param  string $authorization Api key set on etailer genba portal (required)
      *
      * @throws \Swagger\Client\ApiException on non-2xx response
      * @throws \InvalidArgumentException
@@ -111,7 +111,7 @@ class DirectEntitlementApi
      * Perform a direct entitlement activation
      *
      * @param  \Swagger\Client\Model\DirectEntitlementActivationRequest $request Request specifying your direct entitlement activation (required)
-     * @param  string $authorization Access token from AAD. Should start with &#39;Bearer &#39;. (required)
+     * @param  string $authorization Api key set on etailer genba portal (required)
      *
      * @throws \Swagger\Client\ApiException on non-2xx response
      * @throws \InvalidArgumentException
@@ -211,7 +211,7 @@ class DirectEntitlementApi
      * Perform a direct entitlement activation
      *
      * @param  \Swagger\Client\Model\DirectEntitlementActivationRequest $request Request specifying your direct entitlement activation (required)
-     * @param  string $authorization Access token from AAD. Should start with &#39;Bearer &#39;. (required)
+     * @param  string $authorization Api key set on etailer genba portal (required)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
@@ -232,7 +232,7 @@ class DirectEntitlementApi
      * Perform a direct entitlement activation
      *
      * @param  \Swagger\Client\Model\DirectEntitlementActivationRequest $request Request specifying your direct entitlement activation (required)
-     * @param  string $authorization Access token from AAD. Should start with &#39;Bearer &#39;. (required)
+     * @param  string $authorization Api key set on etailer genba portal (required)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
@@ -283,7 +283,7 @@ class DirectEntitlementApi
      * Create request for operation 'directEntitlementActivateAsync'
      *
      * @param  \Swagger\Client\Model\DirectEntitlementActivationRequest $request Request specifying your direct entitlement activation (required)
-     * @param  string $authorization Access token from AAD. Should start with &#39;Bearer &#39;. (required)
+     * @param  string $authorization Api key set on etailer genba portal (required)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
@@ -303,7 +303,7 @@ class DirectEntitlementApi
             );
         }
 
-        $resourcePath = '/api/v3-8/directentitlement/activations';
+        $resourcePath = '/api/v4-0/directentitlement/activations';
         $formParams = [];
         $queryParams = [];
         $headerParams = [];
@@ -312,7 +312,7 @@ class DirectEntitlementApi
 
         // header params
         if ($authorization !== null) {
-            $headerParams['Authorization'] = ObjectSerializer::toHeaderValue($authorization);
+            $headerParams['x-api-key'] = ObjectSerializer::toHeaderValue($authorization);
         }
 
 
@@ -364,7 +364,7 @@ class DirectEntitlementApi
 
         // this endpoint requires OAuth (access token)
         if ($this->config->getAccessToken() !== null) {
-            $headers['Authorization'] = 'Bearer ' . $this->config->getAccessToken();
+            $headerParams['x-api-key'] = ObjectSerializer::toHeaderValue($authorization);
         }
 
         $defaultHeaders = [];
@@ -394,7 +394,7 @@ class DirectEntitlementApi
      *
      * @param  string $activationid Unique ID of the activation (required)
      * @param  \Swagger\Client\Model\DirectEntitlementAction $action The action you want to perform (required)
-     * @param  string $authorization Access token from AAD. Should start with &#39;Bearer &#39;. (required)
+     * @param  string $authorization Api key set on etailer genba portal (required)
      *
      * @throws \Swagger\Client\ApiException on non-2xx response
      * @throws \InvalidArgumentException
@@ -413,7 +413,7 @@ class DirectEntitlementApi
      *
      * @param  string $activationid Unique ID of the activation (required)
      * @param  \Swagger\Client\Model\DirectEntitlementAction $action The action you want to perform (required)
-     * @param  string $authorization Access token from AAD. Should start with &#39;Bearer &#39;. (required)
+     * @param  string $authorization Api key set on etailer genba portal (required)
      *
      * @throws \Swagger\Client\ApiException on non-2xx response
      * @throws \InvalidArgumentException
@@ -522,7 +522,7 @@ class DirectEntitlementApi
      *
      * @param  string $activationid Unique ID of the activation (required)
      * @param  \Swagger\Client\Model\DirectEntitlementAction $action The action you want to perform (required)
-     * @param  string $authorization Access token from AAD. Should start with &#39;Bearer &#39;. (required)
+     * @param  string $authorization Api key set on etailer genba portal (required)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
@@ -544,7 +544,7 @@ class DirectEntitlementApi
      *
      * @param  string $activationid Unique ID of the activation (required)
      * @param  \Swagger\Client\Model\DirectEntitlementAction $action The action you want to perform (required)
-     * @param  string $authorization Access token from AAD. Should start with &#39;Bearer &#39;. (required)
+     * @param  string $authorization Api key set on etailer genba portal (required)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
@@ -596,7 +596,7 @@ class DirectEntitlementApi
      *
      * @param  string $activationid Unique ID of the activation (required)
      * @param  \Swagger\Client\Model\DirectEntitlementAction $action The action you want to perform (required)
-     * @param  string $authorization Access token from AAD. Should start with &#39;Bearer &#39;. (required)
+     * @param  string $authorization Api key set on etailer genba portal (required)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
@@ -622,7 +622,7 @@ class DirectEntitlementApi
             );
         }
 
-        $resourcePath = '/api/v3-8/directentitlement/activations/{activationid}';
+        $resourcePath = '/api/v4-0/directentitlement/activations/{activationid}';
         $formParams = [];
         $queryParams = [];
         $headerParams = [];
@@ -631,7 +631,7 @@ class DirectEntitlementApi
 
         // header params
         if ($authorization !== null) {
-            $headerParams['Authorization'] = ObjectSerializer::toHeaderValue($authorization);
+            $headerParams['x-api-key'] = ObjectSerializer::toHeaderValue($authorization);
         }
 
         // path params
@@ -721,7 +721,7 @@ class DirectEntitlementApi
      *
      * @param  string $redemptionid Unique ID of the redemption (required)
      * @param  \Swagger\Client\Model\DirectEntitlementAction $action The action you want to perform (required)
-     * @param  string $authorization Access token from AAD. Should start with &#39;Bearer &#39;. (required)
+     * @param  string $authorization Api key set on etailer genba portal (required)
      *
      * @throws \Swagger\Client\ApiException on non-2xx response
      * @throws \InvalidArgumentException
@@ -740,7 +740,7 @@ class DirectEntitlementApi
      *
      * @param  string $redemptionid Unique ID of the redemption (required)
      * @param  \Swagger\Client\Model\DirectEntitlementAction $action The action you want to perform (required)
-     * @param  string $authorization Access token from AAD. Should start with &#39;Bearer &#39;. (required)
+     * @param  string $authorization Api key set on etailer genba portal (required)
      *
      * @throws \Swagger\Client\ApiException on non-2xx response
      * @throws \InvalidArgumentException
@@ -849,7 +849,7 @@ class DirectEntitlementApi
      *
      * @param  string $redemptionid Unique ID of the redemption (required)
      * @param  \Swagger\Client\Model\DirectEntitlementAction $action The action you want to perform (required)
-     * @param  string $authorization Access token from AAD. Should start with &#39;Bearer &#39;. (required)
+     * @param  string $authorization Api key set on etailer genba portal (required)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
@@ -871,7 +871,7 @@ class DirectEntitlementApi
      *
      * @param  string $redemptionid Unique ID of the redemption (required)
      * @param  \Swagger\Client\Model\DirectEntitlementAction $action The action you want to perform (required)
-     * @param  string $authorization Access token from AAD. Should start with &#39;Bearer &#39;. (required)
+     * @param  string $authorization Api key set on etailer genba portal (required)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
@@ -923,7 +923,7 @@ class DirectEntitlementApi
      *
      * @param  string $redemptionid Unique ID of the redemption (required)
      * @param  \Swagger\Client\Model\DirectEntitlementAction $action The action you want to perform (required)
-     * @param  string $authorization Access token from AAD. Should start with &#39;Bearer &#39;. (required)
+     * @param  string $authorization Api key set on etailer genba portal (required)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
@@ -949,7 +949,7 @@ class DirectEntitlementApi
             );
         }
 
-        $resourcePath = '/api/v3-8/directentitlement/redemptions/{redemptionid}';
+        $resourcePath = '/api/v4-0/directentitlement/redemptions/{redemptionid}';
         $formParams = [];
         $queryParams = [];
         $headerParams = [];
@@ -958,7 +958,7 @@ class DirectEntitlementApi
 
         // header params
         if ($authorization !== null) {
-            $headerParams['Authorization'] = ObjectSerializer::toHeaderValue($authorization);
+            $headerParams['x-api-key'] = ObjectSerializer::toHeaderValue($authorization);
         }
 
         // path params
@@ -1047,7 +1047,7 @@ class DirectEntitlementApi
      * Perform a direct entitlement redemption
      *
      * @param  \Swagger\Client\Model\DirectEntitlementRedemptionRequest $request Information about the redemption to be performed (required)
-     * @param  string $authorization Access token from AAD. Should start with &#39;Bearer &#39;. (required)
+     * @param  string $authorization Api key set on etailer genba portal (required)
      *
      * @throws \Swagger\Client\ApiException on non-2xx response
      * @throws \InvalidArgumentException
@@ -1065,7 +1065,7 @@ class DirectEntitlementApi
      * Perform a direct entitlement redemption
      *
      * @param  \Swagger\Client\Model\DirectEntitlementRedemptionRequest $request Information about the redemption to be performed (required)
-     * @param  string $authorization Access token from AAD. Should start with &#39;Bearer &#39;. (required)
+     * @param  string $authorization Api key set on etailer genba portal (required)
      *
      * @throws \Swagger\Client\ApiException on non-2xx response
      * @throws \InvalidArgumentException
@@ -1165,7 +1165,7 @@ class DirectEntitlementApi
      * Perform a direct entitlement redemption
      *
      * @param  \Swagger\Client\Model\DirectEntitlementRedemptionRequest $request Information about the redemption to be performed (required)
-     * @param  string $authorization Access token from AAD. Should start with &#39;Bearer &#39;. (required)
+     * @param  string $authorization Api key set on etailer genba portal (required)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
@@ -1186,7 +1186,7 @@ class DirectEntitlementApi
      * Perform a direct entitlement redemption
      *
      * @param  \Swagger\Client\Model\DirectEntitlementRedemptionRequest $request Information about the redemption to be performed (required)
-     * @param  string $authorization Access token from AAD. Should start with &#39;Bearer &#39;. (required)
+     * @param  string $authorization Api key set on etailer genba portal (required)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
@@ -1237,7 +1237,7 @@ class DirectEntitlementApi
      * Create request for operation 'directEntitlementRedeemAsync'
      *
      * @param  \Swagger\Client\Model\DirectEntitlementRedemptionRequest $request Information about the redemption to be performed (required)
-     * @param  string $authorization Access token from AAD. Should start with &#39;Bearer &#39;. (required)
+     * @param  string $authorization Api key set on etailer genba portal (required)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
@@ -1257,7 +1257,7 @@ class DirectEntitlementApi
             );
         }
 
-        $resourcePath = '/api/v3-8/directentitlement/redemptions';
+        $resourcePath = '/api/v4-0/directentitlement/redemptions';
         $formParams = [];
         $queryParams = [];
         $headerParams = [];
@@ -1266,7 +1266,7 @@ class DirectEntitlementApi
 
         // header params
         if ($authorization !== null) {
-            $headerParams['Authorization'] = ObjectSerializer::toHeaderValue($authorization);
+            $headerParams['x-api-key'] = ObjectSerializer::toHeaderValue($authorization);
         }
 
 
@@ -1347,7 +1347,7 @@ class DirectEntitlementApi
      * Retrieve a direct entitlement activation
      *
      * @param  string $activationid The ID of the activation your want to retrieve (required)
-     * @param  string $authorization Access token from AAD. Should start with &#39;Bearer &#39;. (required)
+     * @param  string $authorization Api key set on etailer genba portal (required)
      *
      * @throws \Swagger\Client\ApiException on non-2xx response
      * @throws \InvalidArgumentException
@@ -1365,7 +1365,7 @@ class DirectEntitlementApi
      * Retrieve a direct entitlement activation
      *
      * @param  string $activationid The ID of the activation your want to retrieve (required)
-     * @param  string $authorization Access token from AAD. Should start with &#39;Bearer &#39;. (required)
+     * @param  string $authorization Api key set on etailer genba portal (required)
      *
      * @throws \Swagger\Client\ApiException on non-2xx response
      * @throws \InvalidArgumentException
@@ -1473,7 +1473,7 @@ class DirectEntitlementApi
      * Retrieve a direct entitlement activation
      *
      * @param  string $activationid The ID of the activation your want to retrieve (required)
-     * @param  string $authorization Access token from AAD. Should start with &#39;Bearer &#39;. (required)
+     * @param  string $authorization Api key set on etailer genba portal (required)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
@@ -1494,7 +1494,7 @@ class DirectEntitlementApi
      * Retrieve a direct entitlement activation
      *
      * @param  string $activationid The ID of the activation your want to retrieve (required)
-     * @param  string $authorization Access token from AAD. Should start with &#39;Bearer &#39;. (required)
+     * @param  string $authorization Api key set on etailer genba portal (required)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
@@ -1545,7 +1545,7 @@ class DirectEntitlementApi
      * Create request for operation 'directEntitlementRetrieveActivationAsync'
      *
      * @param  string $activationid The ID of the activation your want to retrieve (required)
-     * @param  string $authorization Access token from AAD. Should start with &#39;Bearer &#39;. (required)
+     * @param  string $authorization Api key set on etailer genba portal (required)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
@@ -1565,7 +1565,7 @@ class DirectEntitlementApi
             );
         }
 
-        $resourcePath = '/api/v3-8/directentitlement/activations/{activationid}';
+        $resourcePath = '/api/v4-0/directentitlement/activations/{activationid}';
         $formParams = [];
         $queryParams = [];
         $headerParams = [];
@@ -1574,7 +1574,7 @@ class DirectEntitlementApi
 
         // header params
         if ($authorization !== null) {
-            $headerParams['Authorization'] = ObjectSerializer::toHeaderValue($authorization);
+            $headerParams['x-api-key'] = ObjectSerializer::toHeaderValue($authorization);
         }
 
         // path params
@@ -1660,7 +1660,7 @@ class DirectEntitlementApi
      * Retrieve a direct entitlement activation by its Client Transaction ID
      *
      * @param  string $ctid The Client Transaction ID of the activation you want to retrieve (required)
-     * @param  string $authorization Access token from AAD. Should start with &#39;Bearer &#39;. (required)
+     * @param  string $authorization Api key set on etailer genba portal (required)
      *
      * @throws \Swagger\Client\ApiException on non-2xx response
      * @throws \InvalidArgumentException
@@ -1678,7 +1678,7 @@ class DirectEntitlementApi
      * Retrieve a direct entitlement activation by its Client Transaction ID
      *
      * @param  string $ctid The Client Transaction ID of the activation you want to retrieve (required)
-     * @param  string $authorization Access token from AAD. Should start with &#39;Bearer &#39;. (required)
+     * @param  string $authorization Api key set on etailer genba portal (required)
      *
      * @throws \Swagger\Client\ApiException on non-2xx response
      * @throws \InvalidArgumentException
@@ -1786,7 +1786,7 @@ class DirectEntitlementApi
      * Retrieve a direct entitlement activation by its Client Transaction ID
      *
      * @param  string $ctid The Client Transaction ID of the activation you want to retrieve (required)
-     * @param  string $authorization Access token from AAD. Should start with &#39;Bearer &#39;. (required)
+     * @param  string $authorization Api key set on etailer genba portal (required)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
@@ -1807,7 +1807,7 @@ class DirectEntitlementApi
      * Retrieve a direct entitlement activation by its Client Transaction ID
      *
      * @param  string $ctid The Client Transaction ID of the activation you want to retrieve (required)
-     * @param  string $authorization Access token from AAD. Should start with &#39;Bearer &#39;. (required)
+     * @param  string $authorization Api key set on etailer genba portal (required)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
@@ -1858,7 +1858,7 @@ class DirectEntitlementApi
      * Create request for operation 'directEntitlementRetrieveActivationByCtidAsync'
      *
      * @param  string $ctid The Client Transaction ID of the activation you want to retrieve (required)
-     * @param  string $authorization Access token from AAD. Should start with &#39;Bearer &#39;. (required)
+     * @param  string $authorization Api key set on etailer genba portal (required)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
@@ -1878,7 +1878,7 @@ class DirectEntitlementApi
             );
         }
 
-        $resourcePath = '/api/v3-8/directentitlement/activations/ctid/{ctid}';
+        $resourcePath = '/api/v4-0/directentitlement/activations/ctid/{ctid}';
         $formParams = [];
         $queryParams = [];
         $headerParams = [];
@@ -1887,7 +1887,7 @@ class DirectEntitlementApi
 
         // header params
         if ($authorization !== null) {
-            $headerParams['Authorization'] = ObjectSerializer::toHeaderValue($authorization);
+            $headerParams['x-api-key'] = ObjectSerializer::toHeaderValue($authorization);
         }
 
         // path params
@@ -1973,7 +1973,7 @@ class DirectEntitlementApi
      * Retrieve a direct entitlement redemption
      *
      * @param  string $redemptionid Unique ID of the redemption (required)
-     * @param  string $authorization Access token from AAD. Should start with &#39;Bearer &#39;. (required)
+     * @param  string $authorization Api key set on etailer genba portal (required)
      *
      * @throws \Swagger\Client\ApiException on non-2xx response
      * @throws \InvalidArgumentException
@@ -1991,7 +1991,7 @@ class DirectEntitlementApi
      * Retrieve a direct entitlement redemption
      *
      * @param  string $redemptionid Unique ID of the redemption (required)
-     * @param  string $authorization Access token from AAD. Should start with &#39;Bearer &#39;. (required)
+     * @param  string $authorization Api key set on etailer genba portal (required)
      *
      * @throws \Swagger\Client\ApiException on non-2xx response
      * @throws \InvalidArgumentException
@@ -2099,7 +2099,7 @@ class DirectEntitlementApi
      * Retrieve a direct entitlement redemption
      *
      * @param  string $redemptionid Unique ID of the redemption (required)
-     * @param  string $authorization Access token from AAD. Should start with &#39;Bearer &#39;. (required)
+     * @param  string $authorization Api key set on etailer genba portal (required)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
@@ -2120,7 +2120,7 @@ class DirectEntitlementApi
      * Retrieve a direct entitlement redemption
      *
      * @param  string $redemptionid Unique ID of the redemption (required)
-     * @param  string $authorization Access token from AAD. Should start with &#39;Bearer &#39;. (required)
+     * @param  string $authorization Api key set on etailer genba portal (required)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
@@ -2171,7 +2171,7 @@ class DirectEntitlementApi
      * Create request for operation 'directEntitlementRetrieveRedemptionAsync'
      *
      * @param  string $redemptionid Unique ID of the redemption (required)
-     * @param  string $authorization Access token from AAD. Should start with &#39;Bearer &#39;. (required)
+     * @param  string $authorization Api key set on etailer genba portal (required)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
@@ -2191,7 +2191,7 @@ class DirectEntitlementApi
             );
         }
 
-        $resourcePath = '/api/v3-8/directentitlement/redemptions/{redemptionid}';
+        $resourcePath = '/api/v4-0/directentitlement/redemptions/{redemptionid}';
         $formParams = [];
         $queryParams = [];
         $headerParams = [];
@@ -2200,7 +2200,7 @@ class DirectEntitlementApi
 
         // header params
         if ($authorization !== null) {
-            $headerParams['Authorization'] = ObjectSerializer::toHeaderValue($authorization);
+            $headerParams['x-api-key'] = ObjectSerializer::toHeaderValue($authorization);
         }
 
         // path params
@@ -2286,7 +2286,7 @@ class DirectEntitlementApi
      * Retrieve a direct entitlement redemption by its Client Transaction ID
      *
      * @param  string $ctid Client Transaction ID of the redemption (required)
-     * @param  string $authorization Access token from AAD. Should start with &#39;Bearer &#39;. (required)
+     * @param  string $authorization Api key set on etailer genba portal (required)
      *
      * @throws \Swagger\Client\ApiException on non-2xx response
      * @throws \InvalidArgumentException
@@ -2304,7 +2304,7 @@ class DirectEntitlementApi
      * Retrieve a direct entitlement redemption by its Client Transaction ID
      *
      * @param  string $ctid Client Transaction ID of the redemption (required)
-     * @param  string $authorization Access token from AAD. Should start with &#39;Bearer &#39;. (required)
+     * @param  string $authorization Api key set on etailer genba portal (required)
      *
      * @throws \Swagger\Client\ApiException on non-2xx response
      * @throws \InvalidArgumentException
@@ -2412,7 +2412,7 @@ class DirectEntitlementApi
      * Retrieve a direct entitlement redemption by its Client Transaction ID
      *
      * @param  string $ctid Client Transaction ID of the redemption (required)
-     * @param  string $authorization Access token from AAD. Should start with &#39;Bearer &#39;. (required)
+     * @param  string $authorization Api key set on etailer genba portal (required)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
@@ -2433,7 +2433,7 @@ class DirectEntitlementApi
      * Retrieve a direct entitlement redemption by its Client Transaction ID
      *
      * @param  string $ctid Client Transaction ID of the redemption (required)
-     * @param  string $authorization Access token from AAD. Should start with &#39;Bearer &#39;. (required)
+     * @param  string $authorization Api key set on etailer genba portal (required)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
@@ -2484,7 +2484,7 @@ class DirectEntitlementApi
      * Create request for operation 'directEntitlementRetrieveRedemptionByCtidAsync'
      *
      * @param  string $ctid Client Transaction ID of the redemption (required)
-     * @param  string $authorization Access token from AAD. Should start with &#39;Bearer &#39;. (required)
+     * @param  string $authorization Api key set on etailer genba portal (required)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
@@ -2504,7 +2504,7 @@ class DirectEntitlementApi
             );
         }
 
-        $resourcePath = '/api/v3-8/directentitlement/redemptions/ctid/{ctid}';
+        $resourcePath = '/api/v4-0/directentitlement/redemptions/ctid/{ctid}';
         $formParams = [];
         $queryParams = [];
         $headerParams = [];
@@ -2513,7 +2513,7 @@ class DirectEntitlementApi
 
         // header params
         if ($authorization !== null) {
-            $headerParams['Authorization'] = ObjectSerializer::toHeaderValue($authorization);
+            $headerParams['x-api-key'] = ObjectSerializer::toHeaderValue($authorization);
         }
 
         // path params

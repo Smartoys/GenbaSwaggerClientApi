@@ -306,7 +306,7 @@ class PromotionsApi
             );
         }
 
-        $resourcePath = '/api/v3-13/promotions';
+        $resourcePath = '/api/v4-0/promotions';
         $formParams = [];
         $queryParams = [];
         $headerParams = [];
@@ -327,7 +327,7 @@ class PromotionsApi
         }
         // header params
         if ($authorization !== null) {
-            $headerParams['Authorization'] = ObjectSerializer::toHeaderValue($authorization);
+            $headerParams['x-api-key'] = ObjectSerializer::toHeaderValue($authorization);
         }
 
 

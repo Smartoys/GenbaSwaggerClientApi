@@ -81,7 +81,7 @@ class Configuration
      *
      * @var string
      */
-    protected $host = 'https://api-dev.genbadigital.io';
+    protected $host = 'https://etailer-api-snd.genbadigital.io';
 
     /**
      * User agent of the HTTP request, set to "PHP-Swagger" by default

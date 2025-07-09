@@ -93,7 +93,7 @@ class OrdersApi
      * Retrieve an order
      *
      * @param  string $orderid The unique ID of the order (required)
-     * @param  string $authorization Access token from AAD. Should start with &#39;Bearer &#39;. (required)
+     * @param  string $authorization Api key set on etailer genba portal (required)
      *
      * @throws \Swagger\Client\ApiException on non-2xx response
      * @throws \InvalidArgumentException
@@ -111,7 +111,7 @@ class OrdersApi
      * Retrieve an order
      *
      * @param  string $orderid The unique ID of the order (required)
-     * @param  string $authorization Access token from AAD. Should start with &#39;Bearer &#39;. (required)
+     * @param  string $authorization Api key set on etailer genba portal (required)
      *
      * @throws \Swagger\Client\ApiException on non-2xx response
      * @throws \InvalidArgumentException
@@ -219,7 +219,7 @@ class OrdersApi
      * Retrieve an order
      *
      * @param  string $orderid The unique ID of the order (required)
-     * @param  string $authorization Access token from AAD. Should start with &#39;Bearer &#39;. (required)
+     * @param  string $authorization Api key set on etailer genba portal (required)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
@@ -240,7 +240,7 @@ class OrdersApi
      * Retrieve an order
      *
      * @param  string $orderid The unique ID of the order (required)
-     * @param  string $authorization Access token from AAD. Should start with &#39;Bearer &#39;. (required)
+     * @param  string $authorization Api key set on etailer genba portal (required)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
@@ -291,7 +291,7 @@ class OrdersApi
      * Create request for operation 'ordersGetOrderAsync'
      *
      * @param  string $orderid The unique ID of the order (required)
-     * @param  string $authorization Access token from AAD. Should start with &#39;Bearer &#39;. (required)
+     * @param  string $authorization Api key set on etailer genba portal (required)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
@@ -311,7 +311,7 @@ class OrdersApi
             );
         }
 
-        $resourcePath = '/api/v3-8/orders/{orderid}';
+        $resourcePath = '/api/v4-0/orders/{orderid}';
         $formParams = [];
         $queryParams = [];
         $headerParams = [];
@@ -320,7 +320,7 @@ class OrdersApi
 
         // header params
         if ($authorization !== null) {
-            $headerParams['Authorization'] = ObjectSerializer::toHeaderValue($authorization);
+            $headerParams['x-api-key'] = ObjectSerializer::toHeaderValue($authorization);
         }
 
         // path params
@@ -406,7 +406,7 @@ class OrdersApi
      * Retrieve an order by CTID
      *
      * @param  string $ctid Client transaction ID (required)
-     * @param  string $authorization Access token from AAD. Should start with &#39;Bearer &#39;. (required)
+     * @param  string $authorization Api key set on etailer genba portal (required)
      *
      * @throws \Swagger\Client\ApiException on non-2xx response
      * @throws \InvalidArgumentException
@@ -424,7 +424,7 @@ class OrdersApi
      * Retrieve an order by CTID
      *
      * @param  string $ctid Client transaction ID (required)
-     * @param  string $authorization Access token from AAD. Should start with &#39;Bearer &#39;. (required)
+     * @param  string $authorization Api key set on etailer genba portal (required)
      *
      * @throws \Swagger\Client\ApiException on non-2xx response
      * @throws \InvalidArgumentException
@@ -532,7 +532,7 @@ class OrdersApi
      * Retrieve an order by CTID
      *
      * @param  string $ctid Client transaction ID (required)
-     * @param  string $authorization Access token from AAD. Should start with &#39;Bearer &#39;. (required)
+     * @param  string $authorization Api key set on etailer genba portal (required)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
@@ -553,7 +553,7 @@ class OrdersApi
      * Retrieve an order by CTID
      *
      * @param  string $ctid Client transaction ID (required)
-     * @param  string $authorization Access token from AAD. Should start with &#39;Bearer &#39;. (required)
+     * @param  string $authorization Api key set on etailer genba portal (required)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
@@ -604,7 +604,7 @@ class OrdersApi
      * Create request for operation 'ordersGetOrderByCtidAsync'
      *
      * @param  string $ctid Client transaction ID (required)
-     * @param  string $authorization Access token from AAD. Should start with &#39;Bearer &#39;. (required)
+     * @param  string $authorization Api key set on etailer genba portal (required)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
@@ -624,7 +624,7 @@ class OrdersApi
             );
         }
 
-        $resourcePath = '/api/v3-8/orders/ctid/{ctid}';
+        $resourcePath = '/api/v4-0/orders/ctid/{ctid}';
         $formParams = [];
         $queryParams = [];
         $headerParams = [];
@@ -633,7 +633,7 @@ class OrdersApi
 
         // header params
         if ($authorization !== null) {
-            $headerParams['Authorization'] = ObjectSerializer::toHeaderValue($authorization);
+            $headerParams['x-api-key'] = ObjectSerializer::toHeaderValue($authorization);
         }
 
         // path params
@@ -720,7 +720,7 @@ class OrdersApi
      *
      * @param  string $orderid The unique ID of the order (required)
      * @param  \Swagger\Client\Model\OrderAction $action The action you want to perform (required)
-     * @param  string $authorization Access token from AAD. Should start with &#39;Bearer &#39;. (required)
+     * @param  string $authorization Api key set on etailer genba portal (required)
      *
      * @throws \Swagger\Client\ApiException on non-2xx response
      * @throws \InvalidArgumentException
@@ -739,7 +739,7 @@ class OrdersApi
      *
      * @param  string $orderid The unique ID of the order (required)
      * @param  \Swagger\Client\Model\OrderAction $action The action you want to perform (required)
-     * @param  string $authorization Access token from AAD. Should start with &#39;Bearer &#39;. (required)
+     * @param  string $authorization Api key set on etailer genba portal (required)
      *
      * @throws \Swagger\Client\ApiException on non-2xx response
      * @throws \InvalidArgumentException
@@ -848,7 +848,7 @@ class OrdersApi
      *
      * @param  string $orderid The unique ID of the order (required)
      * @param  \Swagger\Client\Model\OrderAction $action The action you want to perform (required)
-     * @param  string $authorization Access token from AAD. Should start with &#39;Bearer &#39;. (required)
+     * @param  string $authorization Api key set on etailer genba portal (required)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
@@ -870,7 +870,7 @@ class OrdersApi
      *
      * @param  string $orderid The unique ID of the order (required)
      * @param  \Swagger\Client\Model\OrderAction $action The action you want to perform (required)
-     * @param  string $authorization Access token from AAD. Should start with &#39;Bearer &#39;. (required)
+     * @param  string $authorization Api key set on etailer genba portal (required)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
@@ -922,7 +922,7 @@ class OrdersApi
      *
      * @param  string $orderid The unique ID of the order (required)
      * @param  \Swagger\Client\Model\OrderAction $action The action you want to perform (required)
-     * @param  string $authorization Access token from AAD. Should start with &#39;Bearer &#39;. (required)
+     * @param  string $authorization Api key set on etailer genba portal (required)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
@@ -948,7 +948,7 @@ class OrdersApi
             );
         }
 
-        $resourcePath = '/api/v3-8/orders/{orderid}';
+        $resourcePath = '/api/v4-0/orders/{orderid}';
         $formParams = [];
         $queryParams = [];
         $headerParams = [];
@@ -957,7 +957,7 @@ class OrdersApi
 
         // header params
         if ($authorization !== null) {
-            $headerParams['Authorization'] = ObjectSerializer::toHeaderValue($authorization);
+            $headerParams['x-api-key'] = ObjectSerializer::toHeaderValue($authorization);
         }
 
         // path params
@@ -1046,7 +1046,7 @@ class OrdersApi
      * Order a product key
      *
      * @param  \Swagger\Client\Model\OrderRequest $request Request specifying your order (required)
-     * @param  string $authorization Access token from AAD. Should start with &#39;Bearer &#39;. (required)
+     * @param  string $authorization Api key set on etailer genba portal (required)
      *
      * @throws \Swagger\Client\ApiException on non-2xx response
      * @throws \InvalidArgumentException
@@ -1064,7 +1064,7 @@ class OrdersApi
      * Order a product key
      *
      * @param  \Swagger\Client\Model\OrderRequest $request Request specifying your order (required)
-     * @param  string $authorization Access token from AAD. Should start with &#39;Bearer &#39;. (required)
+     * @param  string $authorization Api key set on etailer genba portal (required)
      *
      * @throws \Swagger\Client\ApiException on non-2xx response
      * @throws \InvalidArgumentException
@@ -1172,7 +1172,7 @@ class OrdersApi
      * Order a product key
      *
      * @param  \Swagger\Client\Model\OrderRequest $request Request specifying your order (required)
-     * @param  string $authorization Access token from AAD. Should start with &#39;Bearer &#39;. (required)
+     * @param  string $authorization Api key set on etailer genba portal (required)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
@@ -1193,7 +1193,7 @@ class OrdersApi
      * Order a product key
      *
      * @param  \Swagger\Client\Model\OrderRequest $request Request specifying your order (required)
-     * @param  string $authorization Access token from AAD. Should start with &#39;Bearer &#39;. (required)
+     * @param  string $authorization Api key set on etailer genba portal (required)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
@@ -1244,7 +1244,7 @@ class OrdersApi
      * Create request for operation 'ordersPlaceOrderAsync'
      *
      * @param  \Swagger\Client\Model\OrderRequest $request Request specifying your order (required)
-     * @param  string $authorization Access token from AAD. Should start with &#39;Bearer &#39;. (required)
+     * @param  string $authorization Api key set on etailer genba portal (required)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
@@ -1264,7 +1264,7 @@ class OrdersApi
             );
         }
 
-        $resourcePath = '/api/v3-8/orders';
+        $resourcePath = '/api/v4-0/orders';
         $formParams = [];
         $queryParams = [];
         $headerParams = [];
@@ -1273,7 +1273,7 @@ class OrdersApi
 
         // header params
         if ($authorization !== null) {
-            $headerParams['Authorization'] = ObjectSerializer::toHeaderValue($authorization);
+            $headerParams['x-api-key'] = ObjectSerializer::toHeaderValue($authorization);
         }
 
 

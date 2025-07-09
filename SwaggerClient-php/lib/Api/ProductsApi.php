@@ -316,7 +316,7 @@ class ProductsApi
             );
         }
 
-        $resourcePath = '/api/v3-8/products/{sku}';
+        $resourcePath = '/api/v4-0/products/{sku}';
         $formParams = [];
         $queryParams = [];
         $headerParams = [];
@@ -329,7 +329,7 @@ class ProductsApi
         }
         // header params
         if ($authorization !== null) {
-            $headerParams['Authorization'] = ObjectSerializer::toHeaderValue($authorization);
+            $headerParams['x-api-key'] = ObjectSerializer::toHeaderValue($authorization);
         }
 
         // path params
@@ -644,7 +644,7 @@ class ProductsApi
             );
         }
 
-        $resourcePath = '/api/v3-8/products';
+        $resourcePath = '/api/v4-0/products';
         $formParams = [];
         $queryParams = [];
         $headerParams = [];
@@ -677,7 +677,7 @@ class ProductsApi
         }
         // header params
         if ($authorization !== null) {
-            $headerParams['Authorization'] = ObjectSerializer::toHeaderValue($authorization);
+            $headerParams['x-api-key'] = ObjectSerializer::toHeaderValue($authorization);
         }
 
 
