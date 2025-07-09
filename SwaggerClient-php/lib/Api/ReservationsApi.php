@@ -311,7 +311,7 @@ class ReservationsApi
             );
         }
 
-        $resourcePath = '/api/v3-8/reservations/{reservationid}';
+        $resourcePath = '/api/v4-0/reservations/{reservationid}';
         $formParams = [];
         $queryParams = [];
         $headerParams = [];
@@ -320,7 +320,7 @@ class ReservationsApi
 
         // header params
         if ($authorization !== null) {
-            $headerParams['Authorization'] = ObjectSerializer::toHeaderValue($authorization);
+            $headerParams['x-api-key'] = ObjectSerializer::toHeaderValue($authorization);
         }
 
         // path params
@@ -624,7 +624,7 @@ class ReservationsApi
             );
         }
 
-        $resourcePath = '/api/v3-8/reservations';
+        $resourcePath = '/api/v4-0/reservations';
         $formParams = [];
         $queryParams = [];
         $headerParams = [];
@@ -633,7 +633,7 @@ class ReservationsApi
 
         // header params
         if ($authorization !== null) {
-            $headerParams['Authorization'] = ObjectSerializer::toHeaderValue($authorization);
+            $headerParams['x-api-key'] = ObjectSerializer::toHeaderValue($authorization);
         }
 
 

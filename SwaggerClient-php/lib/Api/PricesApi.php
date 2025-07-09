@@ -307,7 +307,7 @@ class PricesApi
             );
         }
 
-        $resourcePath = '/api/v3-13/prices';
+        $resourcePath = '/api/v4-0/prices';
         $formParams = [];
         $queryParams = [];
         $headerParams = [];
@@ -324,7 +324,7 @@ class PricesApi
         }
         // header params
         if ($authorization !== null) {
-            $headerParams['Authorization'] = ObjectSerializer::toHeaderValue($authorization);
+            $headerParams['x-api-key'] = ObjectSerializer::toHeaderValue($authorization);
         }
         //products params
         if($productSku !== null) {

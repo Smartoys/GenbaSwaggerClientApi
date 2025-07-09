@@ -284,7 +284,7 @@ class PingApi
             );
         }
 
-        $resourcePath = '/api/v3-13/ping';
+        $resourcePath = '/api/v4-0/ping';
         $formParams = [];
         $queryParams = [];
         $headerParams = [];
@@ -293,7 +293,7 @@ class PingApi
 
         // header params
         if ($authorization !== null) {
-            $headerParams['Authorization'] = ObjectSerializer::toHeaderValue($authorization);
+            $headerParams['x-api-key'] = ObjectSerializer::toHeaderValue($authorization);
         }
 
 
