@@ -30,13 +30,18 @@ namespace Swagger\Client\Api;
 
 use GuzzleHttp\Client;
 use GuzzleHttp\ClientInterface;
+use GuzzleHttp\Exception\GuzzleException;
 use GuzzleHttp\Exception\RequestException;
+use GuzzleHttp\Promise\PromiseInterface;
 use GuzzleHttp\Psr7\MultipartStream;
+use GuzzleHttp\Psr7\Query;
 use GuzzleHttp\Psr7\Request;
 use GuzzleHttp\RequestOptions;
+use InvalidArgumentException;
 use Swagger\Client\ApiException;
 use Swagger\Client\Configuration;
 use Swagger\Client\HeaderSelector;
+use Swagger\Client\Model\DirectEntitlementResponse;
 use Swagger\Client\ObjectSerializer;
 
 /**
@@ -95,9 +100,9 @@ class DirectEntitlementApi
      * @param  \Swagger\Client\Model\DirectEntitlementActivationRequest $request Request specifying your direct entitlement activation (required)
      * @param  string $authorization Api key set on etailer genba portal (required)
      *
-     * @throws \Swagger\Client\ApiException on non-2xx response
-     * @throws \InvalidArgumentException
-     * @return \Swagger\Client\Model\DirectEntitlementResponse
+     * @return DirectEntitlementResponse
+     *@throws InvalidArgumentException
+     * @throws ApiException on non-2xx response
      */
     public function directEntitlementActivateAsync($request, $authorization)
     {
@@ -113,9 +118,9 @@ class DirectEntitlementApi
      * @param  \Swagger\Client\Model\DirectEntitlementActivationRequest $request Request specifying your direct entitlement activation (required)
      * @param  string $authorization Api key set on etailer genba portal (required)
      *
-     * @throws \Swagger\Client\ApiException on non-2xx response
-     * @throws \InvalidArgumentException
      * @return array of \Swagger\Client\Model\DirectEntitlementResponse, HTTP status code, HTTP response headers (array of strings)
+     *@throws InvalidArgumentException
+     * @throws ApiException on non-2xx response
      */
     public function directEntitlementActivateAsyncWithHttpInfo($request, $authorization)
     {
@@ -213,8 +218,8 @@ class DirectEntitlementApi
      * @param  \Swagger\Client\Model\DirectEntitlementActivationRequest $request Request specifying your direct entitlement activation (required)
      * @param  string $authorization Api key set on etailer genba portal (required)
      *
-     * @throws \InvalidArgumentException
-     * @return \GuzzleHttp\Promise\PromiseInterface
+     * @throws InvalidArgumentException
+     * @return PromiseInterface
      */
     public function directEntitlementActivateAsyncAsync($request, $authorization)
     {
@@ -234,8 +239,8 @@ class DirectEntitlementApi
      * @param  \Swagger\Client\Model\DirectEntitlementActivationRequest $request Request specifying your direct entitlement activation (required)
      * @param  string $authorization Api key set on etailer genba portal (required)
      *
-     * @throws \InvalidArgumentException
-     * @return \GuzzleHttp\Promise\PromiseInterface
+     * @throws InvalidArgumentException
+     * @return PromiseInterface
      */
     public function directEntitlementActivateAsyncAsyncWithHttpInfo($request, $authorization)
     {
@@ -285,20 +290,20 @@ class DirectEntitlementApi
      * @param  \Swagger\Client\Model\DirectEntitlementActivationRequest $request Request specifying your direct entitlement activation (required)
      * @param  string $authorization Api key set on etailer genba portal (required)
      *
-     * @throws \InvalidArgumentException
-     * @return \GuzzleHttp\Psr7\Request
+     * @return Request
+     *@throws InvalidArgumentException
      */
     protected function directEntitlementActivateAsyncRequest($request, $authorization)
     {
         // verify the required parameter 'request' is set
         if ($request === null || (is_array($request) && count($request) === 0)) {
-            throw new \InvalidArgumentException(
+            throw new InvalidArgumentException(
                 'Missing the required parameter $request when calling directEntitlementActivateAsync'
             );
         }
         // verify the required parameter 'authorization' is set
         if ($authorization === null || (is_array($authorization) && count($authorization) === 0)) {
-            throw new \InvalidArgumentException(
+            throw new InvalidArgumentException(
                 'Missing the required parameter $authorization when calling directEntitlementActivateAsync'
             );
         }
@@ -339,7 +344,7 @@ class DirectEntitlementApi
             $httpBody = $_tempBody;
             // \stdClass has no __toString(), so we should encode it manually
             if ($httpBody instanceof \stdClass && $headers['Content-Type'] === 'application/json') {
-                $httpBody = \GuzzleHttp\json_encode($httpBody);
+                $httpBody = json_encode($httpBody);
             }
         } elseif (count($formParams) > 0) {
             if ($multipart) {
@@ -354,11 +359,11 @@ class DirectEntitlementApi
                 $httpBody = new MultipartStream($multipartContents);
 
             } elseif ($headers['Content-Type'] === 'application/json') {
-                $httpBody = \GuzzleHttp\json_encode($formParams);
+                $httpBody = json_encode($formParams);
 
             } else {
                 // for HTTP post (form)
-                $httpBody = \GuzzleHttp\Psr7\build_query($formParams);
+                $httpBody = Query::build($formParams);
             }
         }
 
@@ -378,7 +383,7 @@ class DirectEntitlementApi
             $headers
         );
 
-        $query = \GuzzleHttp\Psr7\build_query($queryParams);
+        $query = Query::build($queryParams);
         return new Request(
             'POST',
             $this->config->getHost() . $resourcePath . ($query ? "?{$query}" : ''),
@@ -396,9 +401,9 @@ class DirectEntitlementApi
      * @param  \Swagger\Client\Model\DirectEntitlementAction $action The action you want to perform (required)
      * @param  string $authorization Api key set on etailer genba portal (required)
      *
-     * @throws \Swagger\Client\ApiException on non-2xx response
-     * @throws \InvalidArgumentException
-     * @return \Swagger\Client\Model\DirectEntitlementResponse
+     * @return DirectEntitlementResponse
+     *@throws InvalidArgumentException
+     * @throws ApiException on non-2xx response
      */
     public function directEntitlementPerformActivationActionAsync($activationid, $action, $authorization)
     {
@@ -415,9 +420,9 @@ class DirectEntitlementApi
      * @param  \Swagger\Client\Model\DirectEntitlementAction $action The action you want to perform (required)
      * @param  string $authorization Api key set on etailer genba portal (required)
      *
-     * @throws \Swagger\Client\ApiException on non-2xx response
-     * @throws \InvalidArgumentException
      * @return array of \Swagger\Client\Model\DirectEntitlementResponse, HTTP status code, HTTP response headers (array of strings)
+     *@throws InvalidArgumentException
+     * @throws ApiException on non-2xx response
      */
     public function directEntitlementPerformActivationActionAsyncWithHttpInfo($activationid, $action, $authorization)
     {
@@ -524,8 +529,8 @@ class DirectEntitlementApi
      * @param  \Swagger\Client\Model\DirectEntitlementAction $action The action you want to perform (required)
      * @param  string $authorization Api key set on etailer genba portal (required)
      *
-     * @throws \InvalidArgumentException
-     * @return \GuzzleHttp\Promise\PromiseInterface
+     * @throws InvalidArgumentException
+     * @return PromiseInterface
      */
     public function directEntitlementPerformActivationActionAsyncAsync($activationid, $action, $authorization)
     {
@@ -546,8 +551,8 @@ class DirectEntitlementApi
      * @param  \Swagger\Client\Model\DirectEntitlementAction $action The action you want to perform (required)
      * @param  string $authorization Api key set on etailer genba portal (required)
      *
-     * @throws \InvalidArgumentException
-     * @return \GuzzleHttp\Promise\PromiseInterface
+     * @throws InvalidArgumentException
+     * @return PromiseInterface
      */
     public function directEntitlementPerformActivationActionAsyncAsyncWithHttpInfo($activationid, $action, $authorization)
     {
@@ -598,26 +603,26 @@ class DirectEntitlementApi
      * @param  \Swagger\Client\Model\DirectEntitlementAction $action The action you want to perform (required)
      * @param  string $authorization Api key set on etailer genba portal (required)
      *
-     * @throws \InvalidArgumentException
-     * @return \GuzzleHttp\Psr7\Request
+     * @return Request
+     *@throws InvalidArgumentException
      */
     protected function directEntitlementPerformActivationActionAsyncRequest($activationid, $action, $authorization)
     {
         // verify the required parameter 'activationid' is set
         if ($activationid === null || (is_array($activationid) && count($activationid) === 0)) {
-            throw new \InvalidArgumentException(
+            throw new InvalidArgumentException(
                 'Missing the required parameter $activationid when calling directEntitlementPerformActivationActionAsync'
             );
         }
         // verify the required parameter 'action' is set
         if ($action === null || (is_array($action) && count($action) === 0)) {
-            throw new \InvalidArgumentException(
+            throw new InvalidArgumentException(
                 'Missing the required parameter $action when calling directEntitlementPerformActivationActionAsync'
             );
         }
         // verify the required parameter 'authorization' is set
         if ($authorization === null || (is_array($authorization) && count($authorization) === 0)) {
-            throw new \InvalidArgumentException(
+            throw new InvalidArgumentException(
                 'Missing the required parameter $authorization when calling directEntitlementPerformActivationActionAsync'
             );
         }
@@ -666,7 +671,7 @@ class DirectEntitlementApi
             $httpBody = $_tempBody;
             // \stdClass has no __toString(), so we should encode it manually
             if ($httpBody instanceof \stdClass && $headers['Content-Type'] === 'application/json') {
-                $httpBody = \GuzzleHttp\json_encode($httpBody);
+                $httpBody = json_encode($httpBody);
             }
         } elseif (count($formParams) > 0) {
             if ($multipart) {
@@ -681,11 +686,11 @@ class DirectEntitlementApi
                 $httpBody = new MultipartStream($multipartContents);
 
             } elseif ($headers['Content-Type'] === 'application/json') {
-                $httpBody = \GuzzleHttp\json_encode($formParams);
+                $httpBody = json_encode($formParams);
 
             } else {
                 // for HTTP post (form)
-                $httpBody = \GuzzleHttp\Psr7\build_query($formParams);
+                $httpBody = Query::build($formParams);
             }
         }
 
@@ -705,7 +710,7 @@ class DirectEntitlementApi
             $headers
         );
 
-        $query = \GuzzleHttp\Psr7\build_query($queryParams);
+        $query = Query::build($queryParams);
         return new Request(
             'POST',
             $this->config->getHost() . $resourcePath . ($query ? "?{$query}" : ''),
@@ -723,9 +728,9 @@ class DirectEntitlementApi
      * @param  \Swagger\Client\Model\DirectEntitlementAction $action The action you want to perform (required)
      * @param  string $authorization Api key set on etailer genba portal (required)
      *
-     * @throws \Swagger\Client\ApiException on non-2xx response
-     * @throws \InvalidArgumentException
-     * @return \Swagger\Client\Model\DirectEntitlementResponse
+     * @return DirectEntitlementResponse
+     *@throws InvalidArgumentException
+     * @throws ApiException on non-2xx response
      */
     public function directEntitlementPerformRedemptionActionAsync($redemptionid, $action, $authorization)
     {
@@ -742,9 +747,9 @@ class DirectEntitlementApi
      * @param  \Swagger\Client\Model\DirectEntitlementAction $action The action you want to perform (required)
      * @param  string $authorization Api key set on etailer genba portal (required)
      *
-     * @throws \Swagger\Client\ApiException on non-2xx response
-     * @throws \InvalidArgumentException
      * @return array of \Swagger\Client\Model\DirectEntitlementResponse, HTTP status code, HTTP response headers (array of strings)
+     *@throws InvalidArgumentException
+     * @throws ApiException on non-2xx response
      */
     public function directEntitlementPerformRedemptionActionAsyncWithHttpInfo($redemptionid, $action, $authorization)
     {
@@ -851,8 +856,8 @@ class DirectEntitlementApi
      * @param  \Swagger\Client\Model\DirectEntitlementAction $action The action you want to perform (required)
      * @param  string $authorization Api key set on etailer genba portal (required)
      *
-     * @throws \InvalidArgumentException
-     * @return \GuzzleHttp\Promise\PromiseInterface
+     * @throws InvalidArgumentException
+     * @return PromiseInterface
      */
     public function directEntitlementPerformRedemptionActionAsyncAsync($redemptionid, $action, $authorization)
     {
@@ -873,8 +878,8 @@ class DirectEntitlementApi
      * @param  \Swagger\Client\Model\DirectEntitlementAction $action The action you want to perform (required)
      * @param  string $authorization Api key set on etailer genba portal (required)
      *
-     * @throws \InvalidArgumentException
-     * @return \GuzzleHttp\Promise\PromiseInterface
+     * @throws InvalidArgumentException
+     * @return PromiseInterface
      */
     public function directEntitlementPerformRedemptionActionAsyncAsyncWithHttpInfo($redemptionid, $action, $authorization)
     {
@@ -925,26 +930,26 @@ class DirectEntitlementApi
      * @param  \Swagger\Client\Model\DirectEntitlementAction $action The action you want to perform (required)
      * @param  string $authorization Api key set on etailer genba portal (required)
      *
-     * @throws \InvalidArgumentException
-     * @return \GuzzleHttp\Psr7\Request
+     * @return Request
+     *@throws InvalidArgumentException
      */
     protected function directEntitlementPerformRedemptionActionAsyncRequest($redemptionid, $action, $authorization)
     {
         // verify the required parameter 'redemptionid' is set
         if ($redemptionid === null || (is_array($redemptionid) && count($redemptionid) === 0)) {
-            throw new \InvalidArgumentException(
+            throw new InvalidArgumentException(
                 'Missing the required parameter $redemptionid when calling directEntitlementPerformRedemptionActionAsync'
             );
         }
         // verify the required parameter 'action' is set
         if ($action === null || (is_array($action) && count($action) === 0)) {
-            throw new \InvalidArgumentException(
+            throw new InvalidArgumentException(
                 'Missing the required parameter $action when calling directEntitlementPerformRedemptionActionAsync'
             );
         }
         // verify the required parameter 'authorization' is set
         if ($authorization === null || (is_array($authorization) && count($authorization) === 0)) {
-            throw new \InvalidArgumentException(
+            throw new InvalidArgumentException(
                 'Missing the required parameter $authorization when calling directEntitlementPerformRedemptionActionAsync'
             );
         }
@@ -993,7 +998,7 @@ class DirectEntitlementApi
             $httpBody = $_tempBody;
             // \stdClass has no __toString(), so we should encode it manually
             if ($httpBody instanceof \stdClass && $headers['Content-Type'] === 'application/json') {
-                $httpBody = \GuzzleHttp\json_encode($httpBody);
+                $httpBody = json_encode($httpBody);
             }
         } elseif (count($formParams) > 0) {
             if ($multipart) {
@@ -1008,11 +1013,11 @@ class DirectEntitlementApi
                 $httpBody = new MultipartStream($multipartContents);
 
             } elseif ($headers['Content-Type'] === 'application/json') {
-                $httpBody = \GuzzleHttp\json_encode($formParams);
+                $httpBody = json_encode($formParams);
 
             } else {
                 // for HTTP post (form)
-                $httpBody = \GuzzleHttp\Psr7\build_query($formParams);
+                $httpBody = Query::build($formParams);
             }
         }
 
@@ -1032,7 +1037,7 @@ class DirectEntitlementApi
             $headers
         );
 
-        $query = \GuzzleHttp\Psr7\build_query($queryParams);
+        $query = Query::build($queryParams);
         return new Request(
             'POST',
             $this->config->getHost() . $resourcePath . ($query ? "?{$query}" : ''),
@@ -1049,9 +1054,9 @@ class DirectEntitlementApi
      * @param  \Swagger\Client\Model\DirectEntitlementRedemptionRequest $request Information about the redemption to be performed (required)
      * @param  string $authorization Api key set on etailer genba portal (required)
      *
-     * @throws \Swagger\Client\ApiException on non-2xx response
-     * @throws \InvalidArgumentException
-     * @return \Swagger\Client\Model\DirectEntitlementResponse
+     * @return DirectEntitlementResponse
+     *@throws InvalidArgumentException
+     * @throws ApiException on non-2xx response
      */
     public function directEntitlementRedeemAsync($request, $authorization)
     {
@@ -1067,9 +1072,9 @@ class DirectEntitlementApi
      * @param  \Swagger\Client\Model\DirectEntitlementRedemptionRequest $request Information about the redemption to be performed (required)
      * @param  string $authorization Api key set on etailer genba portal (required)
      *
-     * @throws \Swagger\Client\ApiException on non-2xx response
-     * @throws \InvalidArgumentException
      * @return array of \Swagger\Client\Model\DirectEntitlementResponse, HTTP status code, HTTP response headers (array of strings)
+     *@throws InvalidArgumentException
+     * @throws ApiException on non-2xx response
      */
     public function directEntitlementRedeemAsyncWithHttpInfo($request, $authorization)
     {
@@ -1167,8 +1172,8 @@ class DirectEntitlementApi
      * @param  \Swagger\Client\Model\DirectEntitlementRedemptionRequest $request Information about the redemption to be performed (required)
      * @param  string $authorization Api key set on etailer genba portal (required)
      *
-     * @throws \InvalidArgumentException
-     * @return \GuzzleHttp\Promise\PromiseInterface
+     * @throws InvalidArgumentException
+     * @return PromiseInterface
      */
     public function directEntitlementRedeemAsyncAsync($request, $authorization)
     {
@@ -1188,8 +1193,8 @@ class DirectEntitlementApi
      * @param  \Swagger\Client\Model\DirectEntitlementRedemptionRequest $request Information about the redemption to be performed (required)
      * @param  string $authorization Api key set on etailer genba portal (required)
      *
-     * @throws \InvalidArgumentException
-     * @return \GuzzleHttp\Promise\PromiseInterface
+     * @throws InvalidArgumentException
+     * @return PromiseInterface
      */
     public function directEntitlementRedeemAsyncAsyncWithHttpInfo($request, $authorization)
     {
@@ -1239,20 +1244,20 @@ class DirectEntitlementApi
      * @param  \Swagger\Client\Model\DirectEntitlementRedemptionRequest $request Information about the redemption to be performed (required)
      * @param  string $authorization Api key set on etailer genba portal (required)
      *
-     * @throws \InvalidArgumentException
-     * @return \GuzzleHttp\Psr7\Request
+     * @return Request
+     *@throws InvalidArgumentException
      */
     protected function directEntitlementRedeemAsyncRequest($request, $authorization)
     {
         // verify the required parameter 'request' is set
         if ($request === null || (is_array($request) && count($request) === 0)) {
-            throw new \InvalidArgumentException(
+            throw new InvalidArgumentException(
                 'Missing the required parameter $request when calling directEntitlementRedeemAsync'
             );
         }
         // verify the required parameter 'authorization' is set
         if ($authorization === null || (is_array($authorization) && count($authorization) === 0)) {
-            throw new \InvalidArgumentException(
+            throw new InvalidArgumentException(
                 'Missing the required parameter $authorization when calling directEntitlementRedeemAsync'
             );
         }
@@ -1293,7 +1298,7 @@ class DirectEntitlementApi
             $httpBody = $_tempBody;
             // \stdClass has no __toString(), so we should encode it manually
             if ($httpBody instanceof \stdClass && $headers['Content-Type'] === 'application/json') {
-                $httpBody = \GuzzleHttp\json_encode($httpBody);
+                $httpBody = json_encode($httpBody);
             }
         } elseif (count($formParams) > 0) {
             if ($multipart) {
@@ -1308,11 +1313,11 @@ class DirectEntitlementApi
                 $httpBody = new MultipartStream($multipartContents);
 
             } elseif ($headers['Content-Type'] === 'application/json') {
-                $httpBody = \GuzzleHttp\json_encode($formParams);
+                $httpBody = json_encode($formParams);
 
             } else {
                 // for HTTP post (form)
-                $httpBody = \GuzzleHttp\Psr7\build_query($formParams);
+                $httpBody = Query::build($formParams);
             }
         }
 
@@ -1331,8 +1336,8 @@ class DirectEntitlementApi
             $headerParams,
             $headers
         );
-
-        $query = \GuzzleHttp\Psr7\build_query($queryParams);
+        
+        $query = Query::build($queryParams);
         return new Request(
             'POST',
             $this->config->getHost() . $resourcePath . ($query ? "?{$query}" : ''),
@@ -1349,9 +1354,9 @@ class DirectEntitlementApi
      * @param  string $activationid The ID of the activation your want to retrieve (required)
      * @param  string $authorization Api key set on etailer genba portal (required)
      *
-     * @throws \Swagger\Client\ApiException on non-2xx response
-     * @throws \InvalidArgumentException
-     * @return \Swagger\Client\Model\DirectEntitlementResponse
+     * @return DirectEntitlementResponse
+     *@throws InvalidArgumentException
+     * @throws ApiException on non-2xx response
      */
     public function directEntitlementRetrieveActivationAsync($activationid, $authorization)
     {
@@ -1367,9 +1372,9 @@ class DirectEntitlementApi
      * @param  string $activationid The ID of the activation your want to retrieve (required)
      * @param  string $authorization Api key set on etailer genba portal (required)
      *
-     * @throws \Swagger\Client\ApiException on non-2xx response
-     * @throws \InvalidArgumentException
      * @return array of \Swagger\Client\Model\DirectEntitlementResponse, HTTP status code, HTTP response headers (array of strings)
+     *@throws InvalidArgumentException
+     * @throws ApiException on non-2xx response
      */
     public function directEntitlementRetrieveActivationAsyncWithHttpInfo($activationid, $authorization)
     {
@@ -1475,8 +1480,8 @@ class DirectEntitlementApi
      * @param  string $activationid The ID of the activation your want to retrieve (required)
      * @param  string $authorization Api key set on etailer genba portal (required)
      *
-     * @throws \InvalidArgumentException
-     * @return \GuzzleHttp\Promise\PromiseInterface
+     * @throws InvalidArgumentException
+     * @return PromiseInterface
      */
     public function directEntitlementRetrieveActivationAsyncAsync($activationid, $authorization)
     {
@@ -1496,8 +1501,8 @@ class DirectEntitlementApi
      * @param  string $activationid The ID of the activation your want to retrieve (required)
      * @param  string $authorization Api key set on etailer genba portal (required)
      *
-     * @throws \InvalidArgumentException
-     * @return \GuzzleHttp\Promise\PromiseInterface
+     * @throws InvalidArgumentException
+     * @return PromiseInterface
      */
     public function directEntitlementRetrieveActivationAsyncAsyncWithHttpInfo($activationid, $authorization)
     {
@@ -1547,20 +1552,20 @@ class DirectEntitlementApi
      * @param  string $activationid The ID of the activation your want to retrieve (required)
      * @param  string $authorization Api key set on etailer genba portal (required)
      *
-     * @throws \InvalidArgumentException
-     * @return \GuzzleHttp\Psr7\Request
+     * @return Request
+     *@throws InvalidArgumentException
      */
     protected function directEntitlementRetrieveActivationAsyncRequest($activationid, $authorization)
     {
         // verify the required parameter 'activationid' is set
         if ($activationid === null || (is_array($activationid) && count($activationid) === 0)) {
-            throw new \InvalidArgumentException(
+            throw new InvalidArgumentException(
                 'Missing the required parameter $activationid when calling directEntitlementRetrieveActivationAsync'
             );
         }
         // verify the required parameter 'authorization' is set
         if ($authorization === null || (is_array($authorization) && count($authorization) === 0)) {
-            throw new \InvalidArgumentException(
+            throw new InvalidArgumentException(
                 'Missing the required parameter $authorization when calling directEntitlementRetrieveActivationAsync'
             );
         }
@@ -1606,7 +1611,7 @@ class DirectEntitlementApi
             $httpBody = $_tempBody;
             // \stdClass has no __toString(), so we should encode it manually
             if ($httpBody instanceof \stdClass && $headers['Content-Type'] === 'application/json') {
-                $httpBody = \GuzzleHttp\json_encode($httpBody);
+                $httpBody = json_encode($httpBody);
             }
         } elseif (count($formParams) > 0) {
             if ($multipart) {
@@ -1621,11 +1626,11 @@ class DirectEntitlementApi
                 $httpBody = new MultipartStream($multipartContents);
 
             } elseif ($headers['Content-Type'] === 'application/json') {
-                $httpBody = \GuzzleHttp\json_encode($formParams);
+                $httpBody = json_encode($formParams);
 
             } else {
                 // for HTTP post (form)
-                $httpBody = \GuzzleHttp\Psr7\build_query($formParams);
+                $httpBody = Query::build($formParams);
             }
         }
 
@@ -1645,7 +1650,7 @@ class DirectEntitlementApi
             $headers
         );
 
-        $query = \GuzzleHttp\Psr7\build_query($queryParams);
+        $query = Query::build($queryParams);
         return new Request(
             'GET',
             $this->config->getHost() . $resourcePath . ($query ? "?{$query}" : ''),
@@ -1662,9 +1667,9 @@ class DirectEntitlementApi
      * @param  string $ctid The Client Transaction ID of the activation you want to retrieve (required)
      * @param  string $authorization Api key set on etailer genba portal (required)
      *
-     * @throws \Swagger\Client\ApiException on non-2xx response
-     * @throws \InvalidArgumentException
-     * @return \Swagger\Client\Model\DirectEntitlementResponse
+     * @return DirectEntitlementResponse
+     *@throws InvalidArgumentException
+     * @throws ApiException|GuzzleException on non-2xx response
      */
     public function directEntitlementRetrieveActivationByCtidAsync($ctid, $authorization)
     {
@@ -1680,9 +1685,9 @@ class DirectEntitlementApi
      * @param  string $ctid The Client Transaction ID of the activation you want to retrieve (required)
      * @param  string $authorization Api key set on etailer genba portal (required)
      *
-     * @throws \Swagger\Client\ApiException on non-2xx response
-     * @throws \InvalidArgumentException
      * @return array of \Swagger\Client\Model\DirectEntitlementResponse, HTTP status code, HTTP response headers (array of strings)
+     *@throws InvalidArgumentException
+     * @throws ApiException|GuzzleException on non-2xx response
      */
     public function directEntitlementRetrieveActivationByCtidAsyncWithHttpInfo($ctid, $authorization)
     {
@@ -1788,8 +1793,8 @@ class DirectEntitlementApi
      * @param  string $ctid The Client Transaction ID of the activation you want to retrieve (required)
      * @param  string $authorization Api key set on etailer genba portal (required)
      *
-     * @throws \InvalidArgumentException
-     * @return \GuzzleHttp\Promise\PromiseInterface
+     * @throws InvalidArgumentException
+     * @return PromiseInterface
      */
     public function directEntitlementRetrieveActivationByCtidAsyncAsync($ctid, $authorization)
     {
@@ -1809,8 +1814,8 @@ class DirectEntitlementApi
      * @param  string $ctid The Client Transaction ID of the activation you want to retrieve (required)
      * @param  string $authorization Api key set on etailer genba portal (required)
      *
-     * @throws \InvalidArgumentException
-     * @return \GuzzleHttp\Promise\PromiseInterface
+     * @throws InvalidArgumentException
+     * @return PromiseInterface
      */
     public function directEntitlementRetrieveActivationByCtidAsyncAsyncWithHttpInfo($ctid, $authorization)
     {
@@ -1860,20 +1865,20 @@ class DirectEntitlementApi
      * @param  string $ctid The Client Transaction ID of the activation you want to retrieve (required)
      * @param  string $authorization Api key set on etailer genba portal (required)
      *
-     * @throws \InvalidArgumentException
-     * @return \GuzzleHttp\Psr7\Request
+     * @return Request
+     *@throws InvalidArgumentException
      */
     protected function directEntitlementRetrieveActivationByCtidAsyncRequest($ctid, $authorization)
     {
         // verify the required parameter 'ctid' is set
         if ($ctid === null || (is_array($ctid) && count($ctid) === 0)) {
-            throw new \InvalidArgumentException(
+            throw new InvalidArgumentException(
                 'Missing the required parameter $ctid when calling directEntitlementRetrieveActivationByCtidAsync'
             );
         }
         // verify the required parameter 'authorization' is set
         if ($authorization === null || (is_array($authorization) && count($authorization) === 0)) {
-            throw new \InvalidArgumentException(
+            throw new InvalidArgumentException(
                 'Missing the required parameter $authorization when calling directEntitlementRetrieveActivationByCtidAsync'
             );
         }
@@ -1919,7 +1924,7 @@ class DirectEntitlementApi
             $httpBody = $_tempBody;
             // \stdClass has no __toString(), so we should encode it manually
             if ($httpBody instanceof \stdClass && $headers['Content-Type'] === 'application/json') {
-                $httpBody = \GuzzleHttp\json_encode($httpBody);
+                $httpBody = json_encode($httpBody);
             }
         } elseif (count($formParams) > 0) {
             if ($multipart) {
@@ -1934,11 +1939,11 @@ class DirectEntitlementApi
                 $httpBody = new MultipartStream($multipartContents);
 
             } elseif ($headers['Content-Type'] === 'application/json') {
-                $httpBody = \GuzzleHttp\json_encode($formParams);
+                $httpBody = json_encode($formParams);
 
             } else {
                 // for HTTP post (form)
-                $httpBody = \GuzzleHttp\Psr7\build_query($formParams);
+                $httpBody = Query::build($formParams);
             }
         }
 
@@ -1958,7 +1963,7 @@ class DirectEntitlementApi
             $headers
         );
 
-        $query = \GuzzleHttp\Psr7\build_query($queryParams);
+        $query = Query::build($queryParams);
         return new Request(
             'GET',
             $this->config->getHost() . $resourcePath . ($query ? "?{$query}" : ''),
@@ -1975,9 +1980,9 @@ class DirectEntitlementApi
      * @param  string $redemptionid Unique ID of the redemption (required)
      * @param  string $authorization Api key set on etailer genba portal (required)
      *
-     * @throws \Swagger\Client\ApiException on non-2xx response
-     * @throws \InvalidArgumentException
-     * @return \Swagger\Client\Model\DirectEntitlementResponse
+     * @return DirectEntitlementResponse
+     *@throws InvalidArgumentException
+     * @throws ApiException|GuzzleException on non-2xx response
      */
     public function directEntitlementRetrieveRedemptionAsync($redemptionid, $authorization)
     {
@@ -1993,9 +1998,9 @@ class DirectEntitlementApi
      * @param  string $redemptionid Unique ID of the redemption (required)
      * @param  string $authorization Api key set on etailer genba portal (required)
      *
-     * @throws \Swagger\Client\ApiException on non-2xx response
-     * @throws \InvalidArgumentException
      * @return array of \Swagger\Client\Model\DirectEntitlementResponse, HTTP status code, HTTP response headers (array of strings)
+     *@throws InvalidArgumentException
+     * @throws ApiException|GuzzleException on non-2xx response
      */
     public function directEntitlementRetrieveRedemptionAsyncWithHttpInfo($redemptionid, $authorization)
     {
@@ -2101,8 +2106,8 @@ class DirectEntitlementApi
      * @param  string $redemptionid Unique ID of the redemption (required)
      * @param  string $authorization Api key set on etailer genba portal (required)
      *
-     * @throws \InvalidArgumentException
-     * @return \GuzzleHttp\Promise\PromiseInterface
+     * @throws InvalidArgumentException
+     * @return PromiseInterface
      */
     public function directEntitlementRetrieveRedemptionAsyncAsync($redemptionid, $authorization)
     {
@@ -2122,8 +2127,8 @@ class DirectEntitlementApi
      * @param  string $redemptionid Unique ID of the redemption (required)
      * @param  string $authorization Api key set on etailer genba portal (required)
      *
-     * @throws \InvalidArgumentException
-     * @return \GuzzleHttp\Promise\PromiseInterface
+     * @throws InvalidArgumentException
+     * @return PromiseInterface
      */
     public function directEntitlementRetrieveRedemptionAsyncAsyncWithHttpInfo($redemptionid, $authorization)
     {
@@ -2173,20 +2178,20 @@ class DirectEntitlementApi
      * @param  string $redemptionid Unique ID of the redemption (required)
      * @param  string $authorization Api key set on etailer genba portal (required)
      *
-     * @throws \InvalidArgumentException
-     * @return \GuzzleHttp\Psr7\Request
+     * @return Request
+     *@throws InvalidArgumentException
      */
     protected function directEntitlementRetrieveRedemptionAsyncRequest($redemptionid, $authorization)
     {
         // verify the required parameter 'redemptionid' is set
         if ($redemptionid === null || (is_array($redemptionid) && count($redemptionid) === 0)) {
-            throw new \InvalidArgumentException(
+            throw new InvalidArgumentException(
                 'Missing the required parameter $redemptionid when calling directEntitlementRetrieveRedemptionAsync'
             );
         }
         // verify the required parameter 'authorization' is set
         if ($authorization === null || (is_array($authorization) && count($authorization) === 0)) {
-            throw new \InvalidArgumentException(
+            throw new InvalidArgumentException(
                 'Missing the required parameter $authorization when calling directEntitlementRetrieveRedemptionAsync'
             );
         }
@@ -2232,7 +2237,7 @@ class DirectEntitlementApi
             $httpBody = $_tempBody;
             // \stdClass has no __toString(), so we should encode it manually
             if ($httpBody instanceof \stdClass && $headers['Content-Type'] === 'application/json') {
-                $httpBody = \GuzzleHttp\json_encode($httpBody);
+                $httpBody = json_encode($httpBody);
             }
         } elseif (count($formParams) > 0) {
             if ($multipart) {
@@ -2247,11 +2252,11 @@ class DirectEntitlementApi
                 $httpBody = new MultipartStream($multipartContents);
 
             } elseif ($headers['Content-Type'] === 'application/json') {
-                $httpBody = \GuzzleHttp\json_encode($formParams);
+                $httpBody = json_encode($formParams);
 
             } else {
                 // for HTTP post (form)
-                $httpBody = \GuzzleHttp\Psr7\build_query($formParams);
+                $httpBody = Query::build($formParams);
             }
         }
 
@@ -2271,7 +2276,7 @@ class DirectEntitlementApi
             $headers
         );
 
-        $query = \GuzzleHttp\Psr7\build_query($queryParams);
+        $query = Query::build($queryParams);
         return new Request(
             'GET',
             $this->config->getHost() . $resourcePath . ($query ? "?{$query}" : ''),
@@ -2288,9 +2293,9 @@ class DirectEntitlementApi
      * @param  string $ctid Client Transaction ID of the redemption (required)
      * @param  string $authorization Api key set on etailer genba portal (required)
      *
-     * @throws \Swagger\Client\ApiException on non-2xx response
-     * @throws \InvalidArgumentException
-     * @return \Swagger\Client\Model\DirectEntitlementResponse
+     * @return DirectEntitlementResponse
+     *@throws InvalidArgumentException
+     * @throws ApiException|GuzzleException on non-2xx response
      */
     public function directEntitlementRetrieveRedemptionByCtidAsync($ctid, $authorization)
     {
@@ -2306,9 +2311,9 @@ class DirectEntitlementApi
      * @param  string $ctid Client Transaction ID of the redemption (required)
      * @param  string $authorization Api key set on etailer genba portal (required)
      *
-     * @throws \Swagger\Client\ApiException on non-2xx response
-     * @throws \InvalidArgumentException
      * @return array of \Swagger\Client\Model\DirectEntitlementResponse, HTTP status code, HTTP response headers (array of strings)
+     *@throws InvalidArgumentException
+     * @throws ApiException|GuzzleException on non-2xx response
      */
     public function directEntitlementRetrieveRedemptionByCtidAsyncWithHttpInfo($ctid, $authorization)
     {
@@ -2414,8 +2419,8 @@ class DirectEntitlementApi
      * @param  string $ctid Client Transaction ID of the redemption (required)
      * @param  string $authorization Api key set on etailer genba portal (required)
      *
-     * @throws \InvalidArgumentException
-     * @return \GuzzleHttp\Promise\PromiseInterface
+     * @throws InvalidArgumentException
+     * @return PromiseInterface
      */
     public function directEntitlementRetrieveRedemptionByCtidAsyncAsync($ctid, $authorization)
     {
@@ -2435,8 +2440,8 @@ class DirectEntitlementApi
      * @param  string $ctid Client Transaction ID of the redemption (required)
      * @param  string $authorization Api key set on etailer genba portal (required)
      *
-     * @throws \InvalidArgumentException
-     * @return \GuzzleHttp\Promise\PromiseInterface
+     * @throws InvalidArgumentException
+     * @return PromiseInterface
      */
     public function directEntitlementRetrieveRedemptionByCtidAsyncAsyncWithHttpInfo($ctid, $authorization)
     {
@@ -2486,20 +2491,20 @@ class DirectEntitlementApi
      * @param  string $ctid Client Transaction ID of the redemption (required)
      * @param  string $authorization Api key set on etailer genba portal (required)
      *
-     * @throws \InvalidArgumentException
-     * @return \GuzzleHttp\Psr7\Request
+     * @return Request
+     *@throws InvalidArgumentException
      */
     protected function directEntitlementRetrieveRedemptionByCtidAsyncRequest($ctid, $authorization)
     {
         // verify the required parameter 'ctid' is set
         if ($ctid === null || (is_array($ctid) && count($ctid) === 0)) {
-            throw new \InvalidArgumentException(
+            throw new InvalidArgumentException(
                 'Missing the required parameter $ctid when calling directEntitlementRetrieveRedemptionByCtidAsync'
             );
         }
         // verify the required parameter 'authorization' is set
         if ($authorization === null || (is_array($authorization) && count($authorization) === 0)) {
-            throw new \InvalidArgumentException(
+            throw new InvalidArgumentException(
                 'Missing the required parameter $authorization when calling directEntitlementRetrieveRedemptionByCtidAsync'
             );
         }
@@ -2545,7 +2550,7 @@ class DirectEntitlementApi
             $httpBody = $_tempBody;
             // \stdClass has no __toString(), so we should encode it manually
             if ($httpBody instanceof \stdClass && $headers['Content-Type'] === 'application/json') {
-                $httpBody = \GuzzleHttp\json_encode($httpBody);
+                $httpBody = json_encode($httpBody);
             }
         } elseif (count($formParams) > 0) {
             if ($multipart) {
@@ -2560,11 +2565,11 @@ class DirectEntitlementApi
                 $httpBody = new MultipartStream($multipartContents);
 
             } elseif ($headers['Content-Type'] === 'application/json') {
-                $httpBody = \GuzzleHttp\json_encode($formParams);
+                $httpBody = json_encode($formParams);
 
             } else {
                 // for HTTP post (form)
-                $httpBody = \GuzzleHttp\Psr7\build_query($formParams);
+                $httpBody = Query::build($formParams);
             }
         }
 
@@ -2584,7 +2589,7 @@ class DirectEntitlementApi
             $headers
         );
 
-        $query = \GuzzleHttp\Psr7\build_query($queryParams);
+        $query = Query::build($queryParams);
         return new Request(
             'GET',
             $this->config->getHost() . $resourcePath . ($query ? "?{$query}" : ''),

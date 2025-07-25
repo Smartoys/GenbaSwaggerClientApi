@@ -30,13 +30,19 @@ namespace Swagger\Client\Api;
 
 use GuzzleHttp\Client;
 use GuzzleHttp\ClientInterface;
+use GuzzleHttp\Exception\GuzzleException;
 use GuzzleHttp\Exception\RequestException;
+use GuzzleHttp\Promise\PromiseInterface;
 use GuzzleHttp\Psr7\MultipartStream;
+use GuzzleHttp\Psr7\Query;
 use GuzzleHttp\Psr7\Request;
 use GuzzleHttp\RequestOptions;
+use InvalidArgumentException;
 use Swagger\Client\ApiException;
 use Swagger\Client\Configuration;
 use Swagger\Client\HeaderSelector;
+use Swagger\Client\Model\ReservationRequest;
+use Swagger\Client\Model\ReservationResponse;
 use Swagger\Client\ObjectSerializer;
 
 /**
@@ -95,9 +101,9 @@ class ReservationsApi
      * @param  string $reservationid The unique identifier of the reservation (required)
      * @param  string $authorization Access token from AAD. Should start with &#39;Bearer &#39;. (required)
      *
-     * @throws \Swagger\Client\ApiException on non-2xx response
-     * @throws \InvalidArgumentException
-     * @return \Swagger\Client\Model\ReservationResponse
+     * @return ReservationResponse
+     * @throws InvalidArgumentException
+     * @throws ApiException|GuzzleException on non-2xx response
      */
     public function reservationsGetReservation($reservationid, $authorization)
     {
@@ -113,9 +119,9 @@ class ReservationsApi
      * @param  string $reservationid The unique identifier of the reservation (required)
      * @param  string $authorization Access token from AAD. Should start with &#39;Bearer &#39;. (required)
      *
-     * @throws \Swagger\Client\ApiException on non-2xx response
-     * @throws \InvalidArgumentException
      * @return array of \Swagger\Client\Model\ReservationResponse, HTTP status code, HTTP response headers (array of strings)
+     *@throws InvalidArgumentException
+     * @throws ApiException|GuzzleException on non-2xx response
      */
     public function reservationsGetReservationWithHttpInfo($reservationid, $authorization)
     {
@@ -221,8 +227,8 @@ class ReservationsApi
      * @param  string $reservationid The unique identifier of the reservation (required)
      * @param  string $authorization Access token from AAD. Should start with &#39;Bearer &#39;. (required)
      *
-     * @throws \InvalidArgumentException
-     * @return \GuzzleHttp\Promise\PromiseInterface
+     * @throws InvalidArgumentException
+     * @return PromiseInterface
      */
     public function reservationsGetReservationAsync($reservationid, $authorization)
     {
@@ -242,8 +248,8 @@ class ReservationsApi
      * @param  string $reservationid The unique identifier of the reservation (required)
      * @param  string $authorization Access token from AAD. Should start with &#39;Bearer &#39;. (required)
      *
-     * @throws \InvalidArgumentException
-     * @return \GuzzleHttp\Promise\PromiseInterface
+     * @throws InvalidArgumentException
+     * @return PromiseInterface
      */
     public function reservationsGetReservationAsyncWithHttpInfo($reservationid, $authorization)
     {
@@ -293,20 +299,20 @@ class ReservationsApi
      * @param  string $reservationid The unique identifier of the reservation (required)
      * @param  string $authorization Access token from AAD. Should start with &#39;Bearer &#39;. (required)
      *
-     * @throws \InvalidArgumentException
-     * @return \GuzzleHttp\Psr7\Request
+     * @return Request
+     *@throws InvalidArgumentException
      */
     protected function reservationsGetReservationRequest($reservationid, $authorization)
     {
         // verify the required parameter 'reservationid' is set
         if ($reservationid === null || (is_array($reservationid) && count($reservationid) === 0)) {
-            throw new \InvalidArgumentException(
+            throw new InvalidArgumentException(
                 'Missing the required parameter $reservationid when calling reservationsGetReservation'
             );
         }
         // verify the required parameter 'authorization' is set
         if ($authorization === null || (is_array($authorization) && count($authorization) === 0)) {
-            throw new \InvalidArgumentException(
+            throw new InvalidArgumentException(
                 'Missing the required parameter $authorization when calling reservationsGetReservation'
             );
         }
@@ -352,7 +358,7 @@ class ReservationsApi
             $httpBody = $_tempBody;
             // \stdClass has no __toString(), so we should encode it manually
             if ($httpBody instanceof \stdClass && $headers['Content-Type'] === 'application/json') {
-                $httpBody = \GuzzleHttp\json_encode($httpBody);
+                $httpBody = json_encode($httpBody);
             }
         } elseif (count($formParams) > 0) {
             if ($multipart) {
@@ -367,11 +373,11 @@ class ReservationsApi
                 $httpBody = new MultipartStream($multipartContents);
 
             } elseif ($headers['Content-Type'] === 'application/json') {
-                $httpBody = \GuzzleHttp\json_encode($formParams);
+                $httpBody = json_encode($formParams);
 
             } else {
                 // for HTTP post (form)
-                $httpBody = \GuzzleHttp\Psr7\build_query($formParams);
+                $httpBody = Query::build($formParams);
             }
         }
 
@@ -391,7 +397,7 @@ class ReservationsApi
             $headers
         );
 
-        $query = \GuzzleHttp\Psr7\build_query($queryParams);
+        $query = Query::build($queryParams);
         return new Request(
             'GET',
             $this->config->getHost() . $resourcePath . ($query ? "?{$query}" : ''),
@@ -405,12 +411,12 @@ class ReservationsApi
      *
      * Place a reservation for a product
      *
-     * @param  \Swagger\Client\Model\ReservationRequest $request Request for the reservation (required)
+     * @param  ReservationRequest $request Request for the reservation (required)
      * @param  string $authorization Access token from AAD. Should start with &#39;Bearer &#39;. (required)
      *
-     * @throws \Swagger\Client\ApiException on non-2xx response
-     * @throws \InvalidArgumentException
-     * @return \Swagger\Client\Model\ReservationResponse
+     * @return ReservationResponse
+     *@throws InvalidArgumentException
+     * @throws ApiException|GuzzleException on non-2xx response
      */
     public function reservationsPlaceReservationAsync($request, $authorization)
     {
@@ -423,12 +429,12 @@ class ReservationsApi
      *
      * Place a reservation for a product
      *
-     * @param  \Swagger\Client\Model\ReservationRequest $request Request for the reservation (required)
+     * @param  ReservationRequest $request Request for the reservation (required)
      * @param  string $authorization Access token from AAD. Should start with &#39;Bearer &#39;. (required)
      *
-     * @throws \Swagger\Client\ApiException on non-2xx response
-     * @throws \InvalidArgumentException
      * @return array of \Swagger\Client\Model\ReservationResponse, HTTP status code, HTTP response headers (array of strings)
+     *@throws InvalidArgumentException
+     * @throws ApiException|GuzzleException on non-2xx response
      */
     public function reservationsPlaceReservationAsyncWithHttpInfo($request, $authorization)
     {
@@ -531,11 +537,11 @@ class ReservationsApi
      *
      * Place a reservation for a product
      *
-     * @param  \Swagger\Client\Model\ReservationRequest $request Request for the reservation (required)
+     * @param  ReservationRequest $request Request for the reservation (required)
      * @param  string $authorization Access token from AAD. Should start with &#39;Bearer &#39;. (required)
      *
-     * @throws \InvalidArgumentException
-     * @return \GuzzleHttp\Promise\PromiseInterface
+     * @throws InvalidArgumentException
+     * @return PromiseInterface
      */
     public function reservationsPlaceReservationAsyncAsync($request, $authorization)
     {
@@ -552,11 +558,11 @@ class ReservationsApi
      *
      * Place a reservation for a product
      *
-     * @param  \Swagger\Client\Model\ReservationRequest $request Request for the reservation (required)
+     * @param  ReservationRequest $request Request for the reservation (required)
      * @param  string $authorization Access token from AAD. Should start with &#39;Bearer &#39;. (required)
      *
-     * @throws \InvalidArgumentException
-     * @return \GuzzleHttp\Promise\PromiseInterface
+     * @throws InvalidArgumentException
+     * @return PromiseInterface
      */
     public function reservationsPlaceReservationAsyncAsyncWithHttpInfo($request, $authorization)
     {
@@ -603,23 +609,23 @@ class ReservationsApi
     /**
      * Create request for operation 'reservationsPlaceReservationAsync'
      *
-     * @param  \Swagger\Client\Model\ReservationRequest $request Request for the reservation (required)
+     * @param  ReservationRequest $request Request for the reservation (required)
      * @param  string $authorization Access token from AAD. Should start with &#39;Bearer &#39;. (required)
      *
-     * @throws \InvalidArgumentException
-     * @return \GuzzleHttp\Psr7\Request
+     * @return Request
+     * @throws InvalidArgumentException
      */
     protected function reservationsPlaceReservationAsyncRequest($request, $authorization)
     {
         // verify the required parameter 'request' is set
         if ($request === null || (is_array($request) && count($request) === 0)) {
-            throw new \InvalidArgumentException(
+            throw new InvalidArgumentException(
                 'Missing the required parameter $request when calling reservationsPlaceReservationAsync'
             );
         }
         // verify the required parameter 'authorization' is set
         if ($authorization === null || (is_array($authorization) && count($authorization) === 0)) {
-            throw new \InvalidArgumentException(
+            throw new InvalidArgumentException(
                 'Missing the required parameter $authorization when calling reservationsPlaceReservationAsync'
             );
         }
@@ -660,7 +666,7 @@ class ReservationsApi
             $httpBody = $_tempBody;
             // \stdClass has no __toString(), so we should encode it manually
             if ($httpBody instanceof \stdClass && $headers['Content-Type'] === 'application/json') {
-                $httpBody = \GuzzleHttp\json_encode($httpBody);
+                $httpBody = json_encode($httpBody);
             }
         } elseif (count($formParams) > 0) {
             if ($multipart) {
@@ -675,11 +681,11 @@ class ReservationsApi
                 $httpBody = new MultipartStream($multipartContents);
 
             } elseif ($headers['Content-Type'] === 'application/json') {
-                $httpBody = \GuzzleHttp\json_encode($formParams);
+                $httpBody = json_encode($formParams);
 
             } else {
                 // for HTTP post (form)
-                $httpBody = \GuzzleHttp\Psr7\build_query($formParams);
+                $httpBody = Query::build($formParams);
             }
         }
 
@@ -699,7 +705,7 @@ class ReservationsApi
             $headers
         );
 
-        $query = \GuzzleHttp\Psr7\build_query($queryParams);
+        $query = Query::build($queryParams);
         return new Request(
             'POST',
             $this->config->getHost() . $resourcePath . ($query ? "?{$query}" : ''),

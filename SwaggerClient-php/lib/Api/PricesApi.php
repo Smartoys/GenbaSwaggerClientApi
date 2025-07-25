@@ -30,13 +30,18 @@ namespace Swagger\Client\Api;
 
 use GuzzleHttp\Client;
 use GuzzleHttp\ClientInterface;
+use GuzzleHttp\Exception\GuzzleException;
 use GuzzleHttp\Exception\RequestException;
+use GuzzleHttp\Promise\PromiseInterface;
 use GuzzleHttp\Psr7\MultipartStream;
+use GuzzleHttp\Psr7\Query;
 use GuzzleHttp\Psr7\Request;
 use GuzzleHttp\RequestOptions;
+use InvalidArgumentException;
 use Swagger\Client\ApiException;
 use Swagger\Client\Configuration;
 use Swagger\Client\HeaderSelector;
+use Swagger\Client\Model\PricesResponse;
 use Swagger\Client\ObjectSerializer;
 
 /**
@@ -97,9 +102,9 @@ class PricesApi
      * @param  string $etailerid The affiliated eTailer for which you wish to retrieve the product list (optional)
      * @param  string $productSku The productid which you wish to retrieve the price list
      *
-     * @throws \Swagger\Client\ApiException on non-2xx response
-     * @throws \InvalidArgumentException
-     * @return \Swagger\Client\Model\PricesResponse
+     * @throws ApiException on non-2xx response
+     * @throws InvalidArgumentException|GuzzleException
+     * @return PricesResponse
      */
     public function pricesGetPricesAsync($authorization, $continuationtoken = null, $etailerid = null, $productSku = null)
     {
@@ -117,8 +122,8 @@ class PricesApi
      * @param  string $etailerid The affiliated eTailer for which you wish to retrieve the product list (optional)
      * @param  string $productSku The productid which you wish to retrieve the price list
      *
-     * @throws \Swagger\Client\ApiException on non-2xx response
-     * @throws \InvalidArgumentException
+     * @throws ApiException on non-2xx response
+     * @throws InvalidArgumentException|GuzzleException
      * @return array of \Swagger\Client\Model\PricesResponse, HTTP status code, HTTP response headers (array of strings)
      */
     public function pricesGetPricesAsyncWithHttpInfo($authorization, $continuationtoken = null, $etailerid = null, $productSku = null)
@@ -219,8 +224,8 @@ class PricesApi
      * @param  string $etailerid The affiliated eTailer for which you wish to retrieve the product list (optional)
      * @param  string $productSku The productid which you wish to retrieve the price list
      *
-     * @throws \InvalidArgumentException
-     * @return \GuzzleHttp\Promise\PromiseInterface
+     * @throws InvalidArgumentException
+     * @return PromiseInterface
      */
     public function pricesGetPricesAsyncAsync($authorization, $continuationtoken = null, $etailerid = null, $productSku = null)
     {
@@ -242,8 +247,8 @@ class PricesApi
      * @param  string $etailerid The affiliated eTailer for which you wish to retrieve the product list (optional)
      * @param  string $productSku The productid which you wish to retrieve the price list
      *
-     * @throws \InvalidArgumentException
-     * @return \GuzzleHttp\Promise\PromiseInterface
+     * @throws InvalidArgumentException
+     * @return PromiseInterface
      */
     public function pricesGetPricesAsyncAsyncWithHttpInfo($authorization, $continuationtoken = null, $etailerid = null, $productSku = null)
     {
@@ -295,14 +300,14 @@ class PricesApi
      * @param  string $etailerid The affiliated eTailer for which you wish to retrieve the product list (optional)
      * @param  string $productSku The productid which you wish to retrieve the price list
      *
-     * @throws \InvalidArgumentException
-     * @return \GuzzleHttp\Psr7\Request
+     * @throws InvalidArgumentException
+     * @return Request
      */
     protected function pricesGetPricesAsyncRequest($authorization, $continuationtoken = null, $etailerid = null, $productSku = null)
     {
         // verify the required parameter 'authorization' is set
         if ($authorization === null || (is_array($authorization) && count($authorization) === 0)) {
-            throw new \InvalidArgumentException(
+            throw new InvalidArgumentException(
                 'Missing the required parameter $authorization when calling pricesGetPricesAsync'
             );
         }
@@ -371,7 +376,7 @@ class PricesApi
 
             } else {
                 // for HTTP post (form)
-                $httpBody = \GuzzleHttp\Psr7\build_query($formParams);
+                $httpBody = Query::build($formParams);
             }
         }
 
@@ -391,7 +396,7 @@ class PricesApi
             $headers
         );
 
-        $query = \GuzzleHttp\Psr7\build_query($queryParams);
+        $query = Query::build($queryParams);
         return new Request(
             'GET',
             $this->config->getHost() . $resourcePath . ($query ? "?{$query}" : ''),

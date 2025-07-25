@@ -30,13 +30,19 @@ namespace Swagger\Client\Api;
 
 use GuzzleHttp\Client;
 use GuzzleHttp\ClientInterface;
+use GuzzleHttp\Exception\GuzzleException;
 use GuzzleHttp\Exception\RequestException;
+use GuzzleHttp\Promise\PromiseInterface;
 use GuzzleHttp\Psr7\MultipartStream;
+use GuzzleHttp\Psr7\Query;
 use GuzzleHttp\Psr7\Request;
 use GuzzleHttp\RequestOptions;
+use InvalidArgumentException;
 use Swagger\Client\ApiException;
 use Swagger\Client\Configuration;
 use Swagger\Client\HeaderSelector;
+use Swagger\Client\Model\ProductResponse;
+use Swagger\Client\Model\ProductsResponse;
 use Swagger\Client\ObjectSerializer;
 
 /**
@@ -96,9 +102,9 @@ class ProductsApi
      * @param  string $authorization Access token from AAD. Should start with &#39;Bearer &#39;. (required)
      * @param  string $etailerid The affiliated eTailer for which you wish to retrieve the product (optional)
      *
-     * @throws \Swagger\Client\ApiException on non-2xx response
-     * @throws \InvalidArgumentException
-     * @return \Swagger\Client\Model\ProductResponse
+     * @return ProductResponse
+     *@throws InvalidArgumentException
+     * @throws ApiException on non-2xx response
      */
     public function productsGetProductAsync($sku, $authorization, $etailerid = null)
     {
@@ -115,9 +121,9 @@ class ProductsApi
      * @param  string $authorization Access token from AAD. Should start with &#39;Bearer &#39;. (required)
      * @param  string $etailerid The affiliated eTailer for which you wish to retrieve the product (optional)
      *
-     * @throws \Swagger\Client\ApiException on non-2xx response
-     * @throws \InvalidArgumentException
      * @return array of \Swagger\Client\Model\ProductResponse, HTTP status code, HTTP response headers (array of strings)
+     *@throws InvalidArgumentException
+     * @throws ApiException|GuzzleException on non-2xx response
      */
     public function productsGetProductAsyncWithHttpInfo($sku, $authorization, $etailerid = null)
     {
@@ -224,8 +230,8 @@ class ProductsApi
      * @param  string $authorization Access token from AAD. Should start with &#39;Bearer &#39;. (required)
      * @param  string $etailerid The affiliated eTailer for which you wish to retrieve the product (optional)
      *
-     * @throws \InvalidArgumentException
-     * @return \GuzzleHttp\Promise\PromiseInterface
+     * @throws InvalidArgumentException
+     * @return PromiseInterface
      */
     public function productsGetProductAsyncAsync($sku, $authorization, $etailerid = null)
     {
@@ -246,8 +252,8 @@ class ProductsApi
      * @param  string $authorization Access token from AAD. Should start with &#39;Bearer &#39;. (required)
      * @param  string $etailerid The affiliated eTailer for which you wish to retrieve the product (optional)
      *
-     * @throws \InvalidArgumentException
-     * @return \GuzzleHttp\Promise\PromiseInterface
+     * @throws InvalidArgumentException
+     * @return PromiseInterface
      */
     public function productsGetProductAsyncAsyncWithHttpInfo($sku, $authorization, $etailerid = null)
     {
@@ -298,20 +304,20 @@ class ProductsApi
      * @param  string $authorization Access token from AAD. Should start with &#39;Bearer &#39;. (required)
      * @param  string $etailerid The affiliated eTailer for which you wish to retrieve the product (optional)
      *
-     * @throws \InvalidArgumentException
-     * @return \GuzzleHttp\Psr7\Request
+     * @return Request
+     *@throws InvalidArgumentException
      */
     protected function productsGetProductAsyncRequest($sku, $authorization, $etailerid = null)
     {
         // verify the required parameter 'sku' is set
         if ($sku === null || (is_array($sku) && count($sku) === 0)) {
-            throw new \InvalidArgumentException(
+            throw new InvalidArgumentException(
                 'Missing the required parameter $sku when calling productsGetProductAsync'
             );
         }
         // verify the required parameter 'authorization' is set
         if ($authorization === null || (is_array($authorization) && count($authorization) === 0)) {
-            throw new \InvalidArgumentException(
+            throw new InvalidArgumentException(
                 'Missing the required parameter $authorization when calling productsGetProductAsync'
             );
         }
@@ -361,7 +367,7 @@ class ProductsApi
             $httpBody = $_tempBody;
             // \stdClass has no __toString(), so we should encode it manually
             if ($httpBody instanceof \stdClass && $headers['Content-Type'] === 'application/json') {
-                $httpBody = \GuzzleHttp\json_encode($httpBody);
+                $httpBody = json_encode($httpBody);
             }
         } elseif (count($formParams) > 0) {
             if ($multipart) {
@@ -376,11 +382,11 @@ class ProductsApi
                 $httpBody = new MultipartStream($multipartContents);
 
             } elseif ($headers['Content-Type'] === 'application/json') {
-                $httpBody = \GuzzleHttp\json_encode($formParams);
+                $httpBody = json_encode($formParams);
 
             } else {
                 // for HTTP post (form)
-                $httpBody = \GuzzleHttp\Psr7\build_query($formParams);
+                $httpBody = Query::build($formParams);
             }
         }
 
@@ -400,7 +406,7 @@ class ProductsApi
             $headers
         );
 
-        $query = \GuzzleHttp\Psr7\build_query($queryParams);
+        $query = Query::build($queryParams);
         return new Request(
             'GET',
             $this->config->getHost() . $resourcePath . ($query ? "?{$query}" : ''),
@@ -422,9 +428,9 @@ class ProductsApi
      * @param  string $country_code Filter on products that are allowed in a certain country (optional)
      * @param  string $etailerid The affiliated eTailer for which you wish to retrieve the product list (optional)
      *
-     * @throws \Swagger\Client\ApiException on non-2xx response
-     * @throws \InvalidArgumentException
-     * @return \Swagger\Client\Model\ProductsResponse
+     * @throws ApiException on non-2xx response
+     * @throws InvalidArgumentException
+     * @return ProductsResponse
      */
     public function productsGetProductsAsync($authorization, $continuationtoken = null, $include_meta = null, $from_date = null, $deleted = null, $country_code = null, $etailerid = null)
     {
@@ -445,8 +451,8 @@ class ProductsApi
      * @param  string $country_code Filter on products that are allowed in a certain country (optional)
      * @param  string $etailerid The affiliated eTailer for which you wish to retrieve the product list (optional)
      *
-     * @throws \Swagger\Client\ApiException on non-2xx response
-     * @throws \InvalidArgumentException
+     * @throws ApiException on non-2xx response
+     * @throws InvalidArgumentException|GuzzleException
      * @return array of \Swagger\Client\Model\ProductsResponse, HTTP status code, HTTP response headers (array of strings)
      */
     public function productsGetProductsAsyncWithHttpInfo($authorization, $continuationtoken = null, $include_meta = null, $from_date = null, $deleted = null, $country_code = null, $etailerid = null)
@@ -550,8 +556,8 @@ class ProductsApi
      * @param  string $country_code Filter on products that are allowed in a certain country (optional)
      * @param  string $etailerid The affiliated eTailer for which you wish to retrieve the product list (optional)
      *
-     * @throws \InvalidArgumentException
-     * @return \GuzzleHttp\Promise\PromiseInterface
+     * @throws InvalidArgumentException
+     * @return PromiseInterface
      */
     public function productsGetProductsAsyncAsync($authorization, $continuationtoken = null, $include_meta = null, $from_date = null, $deleted = null, $country_code = null, $etailerid = null)
     {
@@ -576,8 +582,8 @@ class ProductsApi
      * @param  string $country_code Filter on products that are allowed in a certain country (optional)
      * @param  string $etailerid The affiliated eTailer for which you wish to retrieve the product list (optional)
      *
-     * @throws \InvalidArgumentException
-     * @return \GuzzleHttp\Promise\PromiseInterface
+     * @throws InvalidArgumentException
+     * @return PromiseInterface
      */
     public function productsGetProductsAsyncAsyncWithHttpInfo($authorization, $continuationtoken = null, $include_meta = null, $from_date = null, $deleted = null, $country_code = null, $etailerid = null)
     {
@@ -632,14 +638,14 @@ class ProductsApi
      * @param  string $country_code Filter on products that are allowed in a certain country (optional)
      * @param  string $etailerid The affiliated eTailer for which you wish to retrieve the product list (optional)
      *
-     * @throws \InvalidArgumentException
-     * @return \GuzzleHttp\Psr7\Request
+     * @throws InvalidArgumentException
+     * @return Request
      */
     protected function productsGetProductsAsyncRequest($authorization, $continuationtoken = null, $include_meta = null, $from_date = null, $deleted = null, $country_code = null, $etailerid = null)
     {
         // verify the required parameter 'authorization' is set
         if ($authorization === null || (is_array($authorization) && count($authorization) === 0)) {
-            throw new \InvalidArgumentException(
+            throw new InvalidArgumentException(
                 'Missing the required parameter $authorization when calling productsGetProductsAsync'
             );
         }
@@ -701,7 +707,7 @@ class ProductsApi
             $httpBody = $_tempBody;
             // \stdClass has no __toString(), so we should encode it manually
             if ($httpBody instanceof \stdClass && $headers['Content-Type'] === 'application/json') {
-                $httpBody = \GuzzleHttp\json_encode($httpBody);
+                $httpBody = json_encode($httpBody);
             }
         } elseif (count($formParams) > 0) {
             if ($multipart) {
@@ -716,11 +722,11 @@ class ProductsApi
                 $httpBody = new MultipartStream($multipartContents);
 
             } elseif ($headers['Content-Type'] === 'application/json') {
-                $httpBody = \GuzzleHttp\json_encode($formParams);
+                $httpBody = json_encode($formParams);
 
             } else {
                 // for HTTP post (form)
-                $httpBody = \GuzzleHttp\Psr7\build_query($formParams);
+                $httpBody = Query::build($formParams);
             }
         }
 
@@ -740,7 +746,7 @@ class ProductsApi
             $headers
         );
 
-        $query = \GuzzleHttp\Psr7\build_query($queryParams);
+        $query = Query::build($queryParams);
         return new Request(
             'GET',
             $this->config->getHost() . $resourcePath . ($query ? "?{$query}" : ''),

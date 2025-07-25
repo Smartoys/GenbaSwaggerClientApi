@@ -30,13 +30,21 @@ namespace Swagger\Client\Api;
 
 use GuzzleHttp\Client;
 use GuzzleHttp\ClientInterface;
+use GuzzleHttp\Exception\GuzzleException;
 use GuzzleHttp\Exception\RequestException;
+use GuzzleHttp\Promise\PromiseInterface;
 use GuzzleHttp\Psr7\MultipartStream;
+use GuzzleHttp\Psr7\Query;
 use GuzzleHttp\Psr7\Request;
 use GuzzleHttp\RequestOptions;
+use InvalidArgumentException;
+use RuntimeException;
 use Swagger\Client\ApiException;
 use Swagger\Client\Configuration;
 use Swagger\Client\HeaderSelector;
+use Swagger\Client\Model\OrderAction;
+use Swagger\Client\Model\OrderRequest;
+use Swagger\Client\Model\OrderResponse;
 use Swagger\Client\ObjectSerializer;
 
 /**
@@ -95,9 +103,9 @@ class OrdersApi
      * @param  string $orderid The unique ID of the order (required)
      * @param  string $authorization Api key set on etailer genba portal (required)
      *
-     * @throws \Swagger\Client\ApiException on non-2xx response
-     * @throws \InvalidArgumentException
-     * @return \Swagger\Client\Model\OrderResponse
+     * @return OrderResponse
+     *@throws InvalidArgumentException
+     * @throws ApiException on non-2xx response
      */
     public function ordersGetOrderAsync($orderid, $authorization)
     {
@@ -113,9 +121,9 @@ class OrdersApi
      * @param  string $orderid The unique ID of the order (required)
      * @param  string $authorization Api key set on etailer genba portal (required)
      *
-     * @throws \Swagger\Client\ApiException on non-2xx response
-     * @throws \InvalidArgumentException
      * @return array of \Swagger\Client\Model\OrderResponse, HTTP status code, HTTP response headers (array of strings)
+     * @throws InvalidArgumentException
+     * @throws ApiException|GuzzleException on non-2xx response
      */
     public function ordersGetOrderAsyncWithHttpInfo($orderid, $authorization)
     {
@@ -221,8 +229,8 @@ class OrdersApi
      * @param  string $orderid The unique ID of the order (required)
      * @param  string $authorization Api key set on etailer genba portal (required)
      *
-     * @throws \InvalidArgumentException
-     * @return \GuzzleHttp\Promise\PromiseInterface
+     * @throws InvalidArgumentException
+     * @return PromiseInterface
      */
     public function ordersGetOrderAsyncAsync($orderid, $authorization)
     {
@@ -242,8 +250,8 @@ class OrdersApi
      * @param  string $orderid The unique ID of the order (required)
      * @param  string $authorization Api key set on etailer genba portal (required)
      *
-     * @throws \InvalidArgumentException
-     * @return \GuzzleHttp\Promise\PromiseInterface
+     * @throws InvalidArgumentException
+     * @return PromiseInterface
      */
     public function ordersGetOrderAsyncAsyncWithHttpInfo($orderid, $authorization)
     {
@@ -293,20 +301,20 @@ class OrdersApi
      * @param  string $orderid The unique ID of the order (required)
      * @param  string $authorization Api key set on etailer genba portal (required)
      *
-     * @throws \InvalidArgumentException
-     * @return \GuzzleHttp\Psr7\Request
+     * @return Request
+     *@throws InvalidArgumentException
      */
     protected function ordersGetOrderAsyncRequest($orderid, $authorization)
     {
         // verify the required parameter 'orderid' is set
         if ($orderid === null || (is_array($orderid) && count($orderid) === 0)) {
-            throw new \InvalidArgumentException(
+            throw new InvalidArgumentException(
                 'Missing the required parameter $orderid when calling ordersGetOrderAsync'
             );
         }
         // verify the required parameter 'authorization' is set
         if ($authorization === null || (is_array($authorization) && count($authorization) === 0)) {
-            throw new \InvalidArgumentException(
+            throw new InvalidArgumentException(
                 'Missing the required parameter $authorization when calling ordersGetOrderAsync'
             );
         }
@@ -352,7 +360,7 @@ class OrdersApi
             $httpBody = $_tempBody;
             // \stdClass has no __toString(), so we should encode it manually
             if ($httpBody instanceof \stdClass && $headers['Content-Type'] === 'application/json') {
-                $httpBody = \GuzzleHttp\json_encode($httpBody);
+                $httpBody = json_encode($httpBody);
             }
         } elseif (count($formParams) > 0) {
             if ($multipart) {
@@ -367,11 +375,11 @@ class OrdersApi
                 $httpBody = new MultipartStream($multipartContents);
 
             } elseif ($headers['Content-Type'] === 'application/json') {
-                $httpBody = \GuzzleHttp\json_encode($formParams);
+                $httpBody = json_encode($formParams);
 
             } else {
                 // for HTTP post (form)
-                $httpBody = \GuzzleHttp\Psr7\build_query($formParams);
+                $httpBody = Query::build($formParams);
             }
         }
 
@@ -391,7 +399,7 @@ class OrdersApi
             $headers
         );
 
-        $query = \GuzzleHttp\Psr7\build_query($queryParams);
+        $query = Query::build($queryParams);
         return new Request(
             'GET',
             $this->config->getHost() . $resourcePath . ($query ? "?{$query}" : ''),
@@ -408,9 +416,9 @@ class OrdersApi
      * @param  string $ctid Client transaction ID (required)
      * @param  string $authorization Api key set on etailer genba portal (required)
      *
-     * @throws \Swagger\Client\ApiException on non-2xx response
-     * @throws \InvalidArgumentException
-     * @return \Swagger\Client\Model\OrderResponse
+     * @return OrderResponse
+     *@throws InvalidArgumentException
+     * @throws ApiException on non-2xx response
      */
     public function ordersGetOrderByCtidAsync($ctid, $authorization)
     {
@@ -426,9 +434,9 @@ class OrdersApi
      * @param  string $ctid Client transaction ID (required)
      * @param  string $authorization Api key set on etailer genba portal (required)
      *
-     * @throws \Swagger\Client\ApiException on non-2xx response
-     * @throws \InvalidArgumentException
      * @return array of \Swagger\Client\Model\OrderResponse, HTTP status code, HTTP response headers (array of strings)
+     * @throws InvalidArgumentException
+     * @throws ApiException|GuzzleException on non-2xx response
      */
     public function ordersGetOrderByCtidAsyncWithHttpInfo($ctid, $authorization)
     {
@@ -534,8 +542,8 @@ class OrdersApi
      * @param  string $ctid Client transaction ID (required)
      * @param  string $authorization Api key set on etailer genba portal (required)
      *
-     * @throws \InvalidArgumentException
-     * @return \GuzzleHttp\Promise\PromiseInterface
+     * @throws InvalidArgumentException
+     * @return PromiseInterface
      */
     public function ordersGetOrderByCtidAsyncAsync($ctid, $authorization)
     {
@@ -555,8 +563,8 @@ class OrdersApi
      * @param  string $ctid Client transaction ID (required)
      * @param  string $authorization Api key set on etailer genba portal (required)
      *
-     * @throws \InvalidArgumentException
-     * @return \GuzzleHttp\Promise\PromiseInterface
+     * @throws InvalidArgumentException
+     * @return PromiseInterface
      */
     public function ordersGetOrderByCtidAsyncAsyncWithHttpInfo($ctid, $authorization)
     {
@@ -606,20 +614,20 @@ class OrdersApi
      * @param  string $ctid Client transaction ID (required)
      * @param  string $authorization Api key set on etailer genba portal (required)
      *
-     * @throws \InvalidArgumentException
-     * @return \GuzzleHttp\Psr7\Request
+     * @return Request
+     *@throws InvalidArgumentException
      */
     protected function ordersGetOrderByCtidAsyncRequest($ctid, $authorization)
     {
         // verify the required parameter 'ctid' is set
         if ($ctid === null || (is_array($ctid) && count($ctid) === 0)) {
-            throw new \InvalidArgumentException(
+            throw new InvalidArgumentException(
                 'Missing the required parameter $ctid when calling ordersGetOrderByCtidAsync'
             );
         }
         // verify the required parameter 'authorization' is set
         if ($authorization === null || (is_array($authorization) && count($authorization) === 0)) {
-            throw new \InvalidArgumentException(
+            throw new InvalidArgumentException(
                 'Missing the required parameter $authorization when calling ordersGetOrderByCtidAsync'
             );
         }
@@ -665,7 +673,7 @@ class OrdersApi
             $httpBody = $_tempBody;
             // \stdClass has no __toString(), so we should encode it manually
             if ($httpBody instanceof \stdClass && $headers['Content-Type'] === 'application/json') {
-                $httpBody = \GuzzleHttp\json_encode($httpBody);
+                $httpBody = json_encode($httpBody);
             }
         } elseif (count($formParams) > 0) {
             if ($multipart) {
@@ -680,11 +688,11 @@ class OrdersApi
                 $httpBody = new MultipartStream($multipartContents);
 
             } elseif ($headers['Content-Type'] === 'application/json') {
-                $httpBody = \GuzzleHttp\json_encode($formParams);
+                $httpBody = json_encode($formParams);
 
             } else {
                 // for HTTP post (form)
-                $httpBody = \GuzzleHttp\Psr7\build_query($formParams);
+                $httpBody = Query::build($formParams);
             }
         }
 
@@ -704,7 +712,7 @@ class OrdersApi
             $headers
         );
 
-        $query = \GuzzleHttp\Psr7\build_query($queryParams);
+        $query = Query::build($queryParams);
         return new Request(
             'GET',
             $this->config->getHost() . $resourcePath . ($query ? "?{$query}" : ''),
@@ -719,12 +727,12 @@ class OrdersApi
      * Perform an action on an order
      *
      * @param  string $orderid The unique ID of the order (required)
-     * @param  \Swagger\Client\Model\OrderAction $action The action you want to perform (required)
+     * @param  OrderAction $action The action you want to perform (required)
      * @param  string $authorization Api key set on etailer genba portal (required)
      *
-     * @throws \Swagger\Client\ApiException on non-2xx response
-     * @throws \InvalidArgumentException
-     * @return \Swagger\Client\Model\OrderResponse
+     * @return OrderResponse
+     *@throws InvalidArgumentException
+     * @throws ApiException on non-2xx response
      */
     public function ordersPerformOrderActionAsync($orderid, $action, $authorization)
     {
@@ -738,12 +746,12 @@ class OrdersApi
      * Perform an action on an order
      *
      * @param  string $orderid The unique ID of the order (required)
-     * @param  \Swagger\Client\Model\OrderAction $action The action you want to perform (required)
+     * @param  OrderAction $action The action you want to perform (required)
      * @param  string $authorization Api key set on etailer genba portal (required)
      *
-     * @throws \Swagger\Client\ApiException on non-2xx response
-     * @throws \InvalidArgumentException
      * @return array of \Swagger\Client\Model\OrderResponse, HTTP status code, HTTP response headers (array of strings)
+     *@throws InvalidArgumentException
+     * @throws ApiException|GuzzleException on non-2xx response
      */
     public function ordersPerformOrderActionAsyncWithHttpInfo($orderid, $action, $authorization)
     {
@@ -847,11 +855,11 @@ class OrdersApi
      * Perform an action on an order
      *
      * @param  string $orderid The unique ID of the order (required)
-     * @param  \Swagger\Client\Model\OrderAction $action The action you want to perform (required)
+     * @param  OrderAction $action The action you want to perform (required)
      * @param  string $authorization Api key set on etailer genba portal (required)
      *
-     * @throws \InvalidArgumentException
-     * @return \GuzzleHttp\Promise\PromiseInterface
+     * @throws InvalidArgumentException
+     * @return PromiseInterface
      */
     public function ordersPerformOrderActionAsyncAsync($orderid, $action, $authorization)
     {
@@ -869,11 +877,11 @@ class OrdersApi
      * Perform an action on an order
      *
      * @param  string $orderid The unique ID of the order (required)
-     * @param  \Swagger\Client\Model\OrderAction $action The action you want to perform (required)
+     * @param  OrderAction $action The action you want to perform (required)
      * @param  string $authorization Api key set on etailer genba portal (required)
      *
-     * @throws \InvalidArgumentException
-     * @return \GuzzleHttp\Promise\PromiseInterface
+     * @throws InvalidArgumentException
+     * @return PromiseInterface
      */
     public function ordersPerformOrderActionAsyncAsyncWithHttpInfo($orderid, $action, $authorization)
     {
@@ -921,29 +929,29 @@ class OrdersApi
      * Create request for operation 'ordersPerformOrderActionAsync'
      *
      * @param  string $orderid The unique ID of the order (required)
-     * @param  \Swagger\Client\Model\OrderAction $action The action you want to perform (required)
+     * @param  OrderAction $action The action you want to perform (required)
      * @param  string $authorization Api key set on etailer genba portal (required)
      *
-     * @throws \InvalidArgumentException
-     * @return \GuzzleHttp\Psr7\Request
+     * @return Request
+     *@throws InvalidArgumentException
      */
     protected function ordersPerformOrderActionAsyncRequest($orderid, $action, $authorization)
     {
         // verify the required parameter 'orderid' is set
         if ($orderid === null || (is_array($orderid) && count($orderid) === 0)) {
-            throw new \InvalidArgumentException(
+            throw new InvalidArgumentException(
                 'Missing the required parameter $orderid when calling ordersPerformOrderActionAsync'
             );
         }
         // verify the required parameter 'action' is set
         if ($action === null || (is_array($action) && count($action) === 0)) {
-            throw new \InvalidArgumentException(
+            throw new InvalidArgumentException(
                 'Missing the required parameter $action when calling ordersPerformOrderActionAsync'
             );
         }
         // verify the required parameter 'authorization' is set
         if ($authorization === null || (is_array($authorization) && count($authorization) === 0)) {
-            throw new \InvalidArgumentException(
+            throw new InvalidArgumentException(
                 'Missing the required parameter $authorization when calling ordersPerformOrderActionAsync'
             );
         }
@@ -992,7 +1000,7 @@ class OrdersApi
             $httpBody = $_tempBody;
             // \stdClass has no __toString(), so we should encode it manually
             if ($httpBody instanceof \stdClass && $headers['Content-Type'] === 'application/json') {
-                $httpBody = \GuzzleHttp\json_encode($httpBody);
+                $httpBody = json_encode($httpBody);
             }
         } elseif (count($formParams) > 0) {
             if ($multipart) {
@@ -1007,11 +1015,11 @@ class OrdersApi
                 $httpBody = new MultipartStream($multipartContents);
 
             } elseif ($headers['Content-Type'] === 'application/json') {
-                $httpBody = \GuzzleHttp\json_encode($formParams);
+                $httpBody = json_encode($formParams);
 
             } else {
                 // for HTTP post (form)
-                $httpBody = \GuzzleHttp\Psr7\build_query($formParams);
+                $httpBody = Query::build($formParams);
             }
         }
 
@@ -1031,7 +1039,7 @@ class OrdersApi
             $headers
         );
 
-        $query = \GuzzleHttp\Psr7\build_query($queryParams);
+        $query = Query::build($queryParams);
         return new Request(
             'POST',
             $this->config->getHost() . $resourcePath . ($query ? "?{$query}" : ''),
@@ -1045,12 +1053,12 @@ class OrdersApi
      *
      * Order a product key
      *
-     * @param  \Swagger\Client\Model\OrderRequest $request Request specifying your order (required)
+     * @param  OrderRequest $request Request specifying your order (required)
      * @param  string $authorization Api key set on etailer genba portal (required)
      *
-     * @throws \Swagger\Client\ApiException on non-2xx response
-     * @throws \InvalidArgumentException
-     * @return \Swagger\Client\Model\OrderResponse
+     * @return OrderResponse
+     *@throws InvalidArgumentException
+     * @throws ApiException|GuzzleException on non-2xx response
      */
     public function ordersPlaceOrderAsync($request, $authorization)
     {
@@ -1063,12 +1071,12 @@ class OrdersApi
      *
      * Order a product key
      *
-     * @param  \Swagger\Client\Model\OrderRequest $request Request specifying your order (required)
+     * @param  OrderRequest $request Request specifying your order (required)
      * @param  string $authorization Api key set on etailer genba portal (required)
      *
-     * @throws \Swagger\Client\ApiException on non-2xx response
-     * @throws \InvalidArgumentException
      * @return array of \Swagger\Client\Model\OrderResponse, HTTP status code, HTTP response headers (array of strings)
+     *@throws InvalidArgumentException
+     * @throws ApiException|GuzzleException on non-2xx response
      */
     public function ordersPlaceOrderAsyncWithHttpInfo($request, $authorization)
     {
@@ -1171,11 +1179,11 @@ class OrdersApi
      *
      * Order a product key
      *
-     * @param  \Swagger\Client\Model\OrderRequest $request Request specifying your order (required)
+     * @param  OrderRequest $request Request specifying your order (required)
      * @param  string $authorization Api key set on etailer genba portal (required)
      *
-     * @throws \InvalidArgumentException
-     * @return \GuzzleHttp\Promise\PromiseInterface
+     * @throws InvalidArgumentException
+     * @return PromiseInterface
      */
     public function ordersPlaceOrderAsyncAsync($request, $authorization)
     {
@@ -1192,11 +1200,11 @@ class OrdersApi
      *
      * Order a product key
      *
-     * @param  \Swagger\Client\Model\OrderRequest $request Request specifying your order (required)
+     * @param  OrderRequest $request Request specifying your order (required)
      * @param  string $authorization Api key set on etailer genba portal (required)
      *
-     * @throws \InvalidArgumentException
-     * @return \GuzzleHttp\Promise\PromiseInterface
+     * @throws InvalidArgumentException
+     * @return PromiseInterface
      */
     public function ordersPlaceOrderAsyncAsyncWithHttpInfo($request, $authorization)
     {
@@ -1243,23 +1251,23 @@ class OrdersApi
     /**
      * Create request for operation 'ordersPlaceOrderAsync'
      *
-     * @param  \Swagger\Client\Model\OrderRequest $request Request specifying your order (required)
+     * @param  OrderRequest $request Request specifying your order (required)
      * @param  string $authorization Api key set on etailer genba portal (required)
      *
-     * @throws \InvalidArgumentException
-     * @return \GuzzleHttp\Psr7\Request
+     * @return Request
+     *@throws InvalidArgumentException
      */
     protected function ordersPlaceOrderAsyncRequest($request, $authorization)
     {
         // verify the required parameter 'request' is set
         if ($request === null || (is_array($request) && count($request) === 0)) {
-            throw new \InvalidArgumentException(
+            throw new InvalidArgumentException(
                 'Missing the required parameter $request when calling ordersPlaceOrderAsync'
             );
         }
         // verify the required parameter 'authorization' is set
         if ($authorization === null || (is_array($authorization) && count($authorization) === 0)) {
-            throw new \InvalidArgumentException(
+            throw new InvalidArgumentException(
                 'Missing the required parameter $authorization when calling ordersPlaceOrderAsync'
             );
         }
@@ -1300,7 +1308,7 @@ class OrdersApi
             $httpBody = $_tempBody;
             // \stdClass has no __toString(), so we should encode it manually
             if ($httpBody instanceof \stdClass && $headers['Content-Type'] === 'application/json') {
-                $httpBody = \GuzzleHttp\json_encode($httpBody);
+                $httpBody = json_encode($httpBody);
             }
         } elseif (count($formParams) > 0) {
             if ($multipart) {
@@ -1315,11 +1323,11 @@ class OrdersApi
                 $httpBody = new MultipartStream($multipartContents);
 
             } elseif ($headers['Content-Type'] === 'application/json') {
-                $httpBody = \GuzzleHttp\json_encode($formParams);
+                $httpBody = json_encode($formParams);
 
             } else {
                 // for HTTP post (form)
-                $httpBody = \GuzzleHttp\Psr7\build_query($formParams);
+                $httpBody = Query::build($formParams);
             }
         }
 
@@ -1339,7 +1347,7 @@ class OrdersApi
             $headers
         );
 
-        $query = \GuzzleHttp\Psr7\build_query($queryParams);
+        $query = Query::build($queryParams);
         return new Request(
             'POST',
             $this->config->getHost() . $resourcePath . ($query ? "?{$query}" : ''),
@@ -1351,7 +1359,7 @@ class OrdersApi
     /**
      * Create http client option
      *
-     * @throws \RuntimeException on file opening failure
+     * @throws RuntimeException on file opening failure
      * @return array of http client options
      */
     protected function createHttpClientOption()
@@ -1360,7 +1368,7 @@ class OrdersApi
         if ($this->config->getDebug()) {
             $options[RequestOptions::DEBUG] = fopen($this->config->getDebugFile(), 'a');
             if (!$options[RequestOptions::DEBUG]) {
-                throw new \RuntimeException('Failed to open the debug file: ' . $this->config->getDebugFile());
+                throw new RuntimeException('Failed to open the debug file: ' . $this->config->getDebugFile());
             }
         }
 

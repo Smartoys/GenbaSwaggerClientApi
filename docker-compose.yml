@@ -2,12 +2,12 @@ version: "3.7"
 services:
     #Laravel App
     genba_swagger_app:
-        user: "${UID}:${GID}"
+        user: "1000:1000"
         build:
             args:
                 USER_NAME: horstman
-                PUID: ${UID}
-                PGID: ${GID}
+                PUID: 1000
+                PGID: 1000
                 REMOTE_CLIENT_HOST: "172.20.0.1"
             context: .
             dockerfile: ./docker/Dockerfile
