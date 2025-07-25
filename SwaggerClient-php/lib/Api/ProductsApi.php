@@ -663,7 +663,7 @@ class ProductsApi
         }
         // query params
         if ($include_meta !== null) {
-            $queryParams['includeMeta'] = ObjectSerializer::toQueryValue($include_meta);
+            $queryParams['includeMeta'] = $include_meta ? "true" : "false";
         }
         // query params
         if ($from_date !== null) {
